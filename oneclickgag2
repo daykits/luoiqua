@@ -1,0 +1,5168 @@
+-- discord.gg/syncrypt
+
+local function geniter(f, s, c)
+	if type(f) ~= "function" then
+		local mt = getmetatable(f)
+
+		if type(mt) == "table" and mt.__iter then
+			f, s, c = mt.__iter(f)
+		elseif type(f) == "table" then
+			f, s, c = next, f, nil
+		end
+	end
+
+	return function()
+		local r = table.pack(f(s, c))
+
+		if r[1] == nil then
+			return false
+		end
+
+		c = r[1]
+
+		return true, table.unpack(r, 1, r.n)
+	end
+end
+
+while true do
+	wait()
+
+	if not game:IsLoaded() then
+		continue
+	end
+
+	if game.Players.LocalPlayer then
+		break
+	end
+end
+
+repeat
+	wait()
+until game:FindFirstChild("CoreGui")
+
+local function v4(...)
+	return ...
+end
+
+getgenv().ExploitReq = syn and syn.request or identifyexecutor() == "Fluxus" and request or http_request or http.request or requests
+
+local u5 = false
+
+local function v6(p1)
+	local request_ = syn and syn.request
+
+	if not (request_ or identifyexecutor() == "Fluxus" and request or http_request or http.request) then
+	end
+
+	local function v8()
+		local s1 = ""
+		local n1 = 1
+		local n2 = 5
+		local sub, tostring_, v14
+
+		if n1 <= n2 then
+			sub = string.sub
+			tostring_ = tostring
+
+			while true do
+				s1 ..= sub(tostring_({}), 18, math.random(-5, -2))
+				v14 += nil
+
+				if nil <= 0 then
+					if not (v14 >= nil) then
+						break
+					end
+
+					sub = string.sub
+					tostring_ = tostring
+
+					continue
+				end
+
+				if not (v14 <= nil) then
+					break
+				end
+
+				sub = string.sub
+				tostring_ = tostring
+			end
+		end
+
+		return s1
+	end
+
+	script_key = key
+	getgenv().script_key = key
+	getfenv().script_key = key
+	getfenv(1).script_key = key
+	getfenv(2).script_key = key
+
+	local lib = loadstring(game:HttpGet("https://sdkapi-public.luarmor.net/library.lua"))()
+
+	lib.script_id = "226b3e16b8b245a46eb5d20a42b359ee"
+
+	local v16 = lib.check_key(p1)
+
+	if v16.code == "KEY_VALID" then
+		LimitKeyFree = true
+		u5 = true
+
+		return
+	end
+
+	if v16.code == "KEY_HWID_LOCKED" then
+		game.Players.LocalPlayer:Kick("Key linked to a different HWID.")
+
+		return
+	end
+
+	if v16.code == "KEY_INCORRECT" then
+		game.Players.LocalPlayer:Kick("Key is wrong or deleted!")
+
+		return
+	end
+end
+local function v17()
+	local now = tick()
+
+	if not getgenv().Key then
+		return warn("send your key pls!")
+	end
+
+	if #getgenv().Key ~= 24 then
+		return warn("send your key pls!")
+	end
+
+	loadstring("--")()
+	loadstring("getgenv().ditconmemaythangsvvando = true")()
+
+	if not getgenv().ditconmemaythangsvvando then
+		while true do
+		end
+	end
+
+	local request_ = syn and syn.request or identifyexecutor() == "Fluxus" and request or http_request or http.request or requests
+
+	local function v20()
+		local s2 = ""
+
+		for i = 1, 5 do
+			s2 ..= string.sub(tostring({}), 18, math.random(-5, -2))
+		end
+
+		return s2
+	end
+	local function v23(p2)
+		return p2 - p2 % 1
+	end
+	local function v24(p3, p4, p5)
+		local n3 = 1
+
+		while p4 > 0 do
+			if p4 % 2 == 1 then
+				n3 = n3 * p3 % p5
+			end
+
+			p3 = p3 * p3 % p5
+			p4 = v23(p4 / 2)
+		end
+
+		return n3
+	end
+	local function v26(p6, p7)
+		local t1 = {}
+		local v28 = ("([^%s]+)"):format(p7)
+
+		for match in p6:gmatch(v28) do
+			table.insert(t1, match)
+		end
+
+		return t1
+	end
+	local function v30(p8)
+		local v31
+
+		if p8 then
+			v31 = tostring(p8)
+		else
+			v31 = tostring("")
+		end
+
+		return (v31:gsub("\\", "\\\\"):gsub("\"", "\\\""):gsub("\n", "\\n"):gsub("\r", "\\r"))
+	end
+	local function v32(p9)
+		local v33 = tostring(p9 or "")
+
+		if #v33 <= 8 then
+			return v33
+		end
+
+		return v33:sub(1, 4) .. "..." .. v33:sub(-4)
+	end
+	local function v34(p10, p11)
+		if not request_ then
+			return
+		end
+
+		local v35 = p11 or {}
+		local s3 = "unknown"
+
+		pcall(function()
+			s3 = identifyexecutor()
+		end)
+
+		local t2 = {
+			{
+				name = "reason",
+				value = tostring(p10 or "unknown")
+			},
+			{
+				name = "executor",
+				value = s3
+			},
+			{
+				name = "player",
+				value = tostring(game.Players.LocalPlayer and game.Players.LocalPlayer.Name or "unknown")
+			},
+			{
+				name = "userId",
+				value = tostring(game.Players.LocalPlayer and game.Players.LocalPlayer.UserId or "unknown")
+			},
+			{
+				name = "placeId",
+				value = tostring(game.PlaceId)
+			},
+			{
+				name = "jobId",
+				value = tostring(game.JobId)
+			},
+			{
+				name = "key",
+				value = v32(getgenv().Key)
+			},
+			{
+				name = "elapsed",
+				value = tostring(v35.elapsed or "")
+			},
+			{
+				name = "statusCode",
+				value = tostring(v35.statusCode or "")
+			},
+			{
+				name = "success",
+				value = tostring(v35.success or "")
+			},
+			{
+				name = "body",
+				value = tostring(v35.body or ""):sub(1, 900)
+			},
+			{
+				name = "url",
+				value = tostring(v35.url or ""):sub(1, 900)
+			}
+		}
+		local t15 = {}
+
+		for _, v in ipairs(t2) do
+			if v.value ~= "" then
+				table.insert(t15, ("{\"name\":\"%s\",\"value\":\"```%s```\",\"inline\":false}"):format(v30(v.name), v30(v.value)))
+			end
+		end
+
+		local v53 = ("{\"username\":\"Whitelist Timeout\",\"embeds\":[{\"title\":\"whitelist.lua timeout\",\"color\":16711680,\"fields\":[%s]}]}"):format(table.concat(t15, ","))
+
+		pcall(function()
+			request_({
+				Url = "https://discord.com/api/webhooks/1504064385297944677/wFetQzD57-BYNqPJU5_fMT7ERVEIrAX1ut3KtiizBKn04VJgXVSWHVriChDVUxhzYmME",
+				Method = "POST",
+				Headers = {
+					["Content-Type"] = "application/json"
+				},
+				Body = v53,
+				Timeout = 8
+			})
+		end)
+	end
+	local function v54()
+		local s4 = "unknown"
+
+		pcall(function()
+			s4 = identifyexecutor()
+		end)
+
+		return s4
+	end
+	local function v56(p12)
+		return (tostring(p12 or ""):gsub("([^%w%-_%.~])", function(p13)
+			return string.format("%%%02X", string.byte(p13))
+		end))
+	end
+	local function v57()
+		local ok, result = pcall(function()
+			if isfile then
+				if isfile("chuoihub_token.dat") then
+					return readfile("chuoihub_token.dat")
+				end
+			end
+
+			return nil
+		end)
+
+		if ok and result and #result > 10 then
+			return result
+		end
+
+		return nil
+	end
+	local function v60(p14)
+		pcall(function()
+			if writefile then
+				writefile("chuoihub_token.dat", p14)
+			end
+		end)
+	end
+	local function v61()
+		pcall(function()
+			if delfile and isfile and isfile("chuoihub_token.dat") then
+				delfile("chuoihub_token.dat")
+			end
+		end)
+	end
+	local function v62()
+		if not v54():find("Delta") then
+			return
+		end
+
+		local v63 = "https://banana-hub.xyz" .. "/api/v1/delta-debug?executor=" .. v56(v54()) .. "&player=" .. v56(game.Players.LocalPlayer.Name) .. "&userId=" .. v56(game.Players.LocalPlayer.UserId) .. "&placeId=" .. v56(game.PlaceId) .. "&jobId=" .. v56(game.JobId)
+
+		task.spawn(function()
+			pcall(function()
+				request_({
+					Url = v63,
+					Method = "GET",
+					Headers = {
+						["x-executor"] = v54()
+					}
+				})
+			end)
+		end)
+	end
+	local function v64(p15)
+		local now2 = tick()
+		local u66
+		local ok, result = pcall(function()
+			u66 = ExploitReq({
+				Url = p15,
+				Method = "GET",
+				Headers = {
+					["x-executor"] = v54()
+				},
+				Timeout = 8
+			})
+
+			if u66.StatusCode == 403 then
+				v34("auth returned 403", {
+					url = p15,
+					elapsed = tick() - now2,
+					statusCode = u66.StatusCode,
+					success = u66.Success,
+					body = u66.Body
+				})
+				game.Players.LocalPlayer:Kick(u66.Body)
+
+				return
+			end
+
+			if not identifyexecutor():find("Swift") then
+				if not (identifyexecutor():find("Sonar") or u66.Success) then
+					v34("request failed before freeze", {
+						url = p15,
+						elapsed = tick() - now2,
+						statusCode = u66.StatusCode,
+						success = u66.Success,
+						body = u66.Body
+					})
+					error("Request failed: " .. tostring(u66 and u66.StatusCode or "unknown"))
+				end
+			end
+
+			if not u66.Headers then
+				v34("response missing headers before freeze", {
+					url = p15,
+					elapsed = tick() - now2,
+					statusCode = u66.StatusCode,
+					success = u66.Success,
+					body = u66.Body
+				})
+				error("Response missing headers")
+			end
+		end)
+
+		if ok and tick() - now2 < 0.001 then
+			v34("request returned too fast before freeze", {
+				url = p15,
+				elapsed = tick() - now2,
+				statusCode = u66 and u66.StatusCode,
+				success = u66 and u66.Success,
+				body = u66 and u66.Body
+			})
+			error("Returned too fast")
+		end
+
+		if ok then
+			return u66
+		end
+
+		v34("request pcall failed", {
+			url = p15,
+			elapsed = tick() - now2,
+			body = result
+		})
+
+		return nil
+	end
+
+	local v69 = table.create(255)
+
+	for i = 0, 255 do
+		local v71 = string.char(i)
+
+		v69[i] = v71
+		v69[v71] = i
+	end
+
+	local function v72(p16)
+		local n4 = 1
+		local s5 = ""
+
+		while n4 <= #p16 do
+			local v75 = string.sub(p16, n4, n4)
+
+			s5 ..= v69[string.sub(p16, n4 + 1, n4 + v75) - v4(79)]
+			n4 = n4 + 1 + v75
+		end
+
+		return s5
+	end
+	local function v76(p17)
+		local s6 = ""
+
+		while p17 > 0 do
+			local v78 = math.fmod(p17, 16) + 1
+
+			p17 = math.floor(p17 / 16)
+			s6 = string.sub("0123456789abcdef", v78, v78) .. s6
+		end
+
+		if s6 == "" then
+			s6 = "00"
+		end
+
+		if #s6 % 2 == 1 then
+			s6 = "0" .. s6
+		end
+
+		return s6
+	end
+	local function v79(p18)
+		return (string.format("%02X", p18))
+	end
+	local function v80(p19)
+		local s7 = ""
+
+		for i = 1, #p19 do
+			local v83 = string.byte(p19, i)
+
+			s7 ..= v79(v83)
+		end
+
+		return s7
+	end
+	local function v84(p20, p21)
+		if not inv256 then
+			inv256 = {}
+
+			for i = 0, 127 do
+				local n5 = -1
+
+				repeat
+					n5 += 2
+				until n5 * (2 * i + 1) % 256 == 1
+
+				inv256[i] = n5
+			end
+		end
+
+		local n6 = 1272164322303177
+		local v88 = 16384 + p21
+
+		return (p20:gsub(".", function(p22)
+			local v89 = n6 % 274877906944
+			local v90 = (n6 - v89) / 274877906944
+			local v91 = v90 % 128
+			local v92 = p22:byte()
+			local v93 = (v92 * inv256[v91] - (v90 - v91) / 128) % 256
+
+			n6 = v89 * v88 + v90 + v93 + v92
+
+			return v76(v93)
+		end))
+	end
+	local function v94(p23, p24)
+		if not p23 then
+			return false
+		end
+
+		print("[Chuoi Hub] Verifying saved session...")
+
+		local v95 = v4(3547)
+		local v96 = v4(73387)
+		local v97 = Random.new():NextNumber(100, 9999)
+		local v98 = v24(v95, v97, v96)
+		local v99 = v20()
+		local v100 = v80(v99 .. v98)
+		local v101 = "https://banana-hub.xyz" .. "/api/v1/ivhpxfzersxt/verify?token=" .. v56(p23) .. "&a=" .. v99 .. "&c=" .. v98 .. "&d=" .. v100
+		local ok, result = pcall(function()
+			return ExploitReq({
+				Url = v101,
+				Method = "GET",
+				Headers = {
+					["x-executor"] = v54()
+				},
+				Timeout = 8
+			})
+		end)
+
+		if not ok or not result then
+			return false
+		end
+
+		if not result.Success or result.StatusCode ~= 200 then
+			if result.StatusCode == 403 or result.StatusCode == 401 or result.StatusCode == 400 then
+				v61()
+			end
+
+			return false
+		end
+
+		local u104
+		local ok2 = pcall(function()
+			u104 = v26(result.Body, "-")
+		end)
+
+		if not ok2 or not u104 or not u104[1] or not u104[2] then
+			return false
+		end
+
+		local v107 = v24(u104[2], v97, v96)
+
+		if v72(u104[1]) == v107 .. p24 then
+			print("[Chuoi Hub] Session verified successfully!")
+
+			return true
+		end
+
+		v61()
+
+		return false
+	end
+	local function v108(p25)
+		print("[Chuoi Hub] Checking whitelist...")
+
+		while not u5 do
+			local v109 = v57()
+
+			if v109 and v94(v109, p25) then
+				u5 = true
+
+				break
+			end
+
+			print("[Chuoi Hub] Connecting to server...")
+
+			local v110 = v4(3547)
+			local v111 = v4(73387)
+			local v112 = Random.new():NextNumber(100, 9999)
+			local v113 = v24(v110, v112, v111)
+			local v114 = v20()
+			local v115 = v80(v114 .. v113)
+			local v116 = "https://banana-hub.xyz" .. "/api/v1/ivhpxfzersxt?a=" .. v114 .. "&b=" .. v84(game.Players.LocalPlayer.Name, v113) .. "&c=" .. v113 .. "&d=" .. v115 .. "&e=" .. v84(p25, v113)
+
+			v62()
+
+			local v117 = false
+
+			task.delay(12, function()
+				if not v117 then
+					v34("auth request timeout after checking", {
+						url = v116,
+						elapsed = tick() - now
+					})
+				end
+			end)
+
+			local ok, result = pcall(v64, v116)
+
+			v117 = true
+
+			if ok then
+				if result then
+					if result.StatusCode == 403 or result.StatusCode == 401 or result.StatusCode == 400 then
+						game.Players.LocalPlayer:Kick("Whitelist authorization failed (" .. tostring(result.StatusCode) .. "): " .. tostring(result.Body))
+
+						break
+					end
+
+					local u120
+					local ok2 = pcall(function()
+						u120 = v26(result.Body, "-")
+					end)
+
+					if ok2 and u120 and u120[1] and u120[2] then
+						local v123 = v24(u120[2], v112, v111)
+
+						if v72(u120[1]) == v123 .. p25 then
+							if u120[3] then
+								v60(u120[3])
+							end
+
+							print("[Chuoi Hub] Whitelist verified successfully!")
+							u5 = true
+
+							break
+						end
+
+						print("[Chuoi Hub] Verification mismatch. Retrying in 3 seconds...")
+						task.wait(3)
+					else
+						v34("fail convert response body", {
+							url = v116,
+							elapsed = tick() - now,
+							statusCode = result.StatusCode,
+							success = result.Success,
+							body = result.Body
+						})
+						print("[Chuoi Hub] Server response error. Retrying in 3 seconds...")
+						task.wait(3)
+					end
+				else
+					v34("auth request returned nil", {
+						url = v116,
+						elapsed = tick() - now,
+						body = result
+					})
+					print("[Chuoi Hub] Connection failed. Retrying in 3 seconds...")
+					task.wait(3)
+				end
+			else
+				v34("auth request returned nil", {
+					url = v116,
+					elapsed = tick() - now,
+					body = result
+				})
+				print("[Chuoi Hub] Connection failed. Retrying in 3 seconds...")
+				task.wait(3)
+			end
+		end
+	end
+
+	v108(getgenv().Key)
+end
+
+if #getgenv().Key == 32 then
+	v6(getgenv().Key)
+else
+	v17(getgenv().Key)
+end
+
+repeat
+	wait()
+until u5 == true
+
+while true do
+	wait()
+
+	if not game:IsLoaded() then
+		continue
+	end
+
+	if game.Players.LocalPlayer then
+		break
+	end
+end
+
+if not game.Players.LocalPlayer:GetAttribute("LoadingScreenDone") then
+	repeat
+		task.wait()
+		game.Players.LocalPlayer:SetAttribute("LoadingScreenDone", true)
+	until game.Players.LocalPlayer:GetAttribute("LoadingScreenDone")
+end
+
+if not getgenv().Config then
+	getgenv().Config = {
+		["Max Plant Fruit"] = 200,
+		["Buy Expand Plot"] = true,
+		["Buy Slot Pet"] = true,
+		Pet = {
+			["Auto Buy"] = {
+				Enable = true,
+				Pet = {
+					IceSerpent = true,
+					Raccoon = true,
+					Unicorn = true,
+					GoldenDragonfly = true,
+					BlackDragon = true,
+					Monkey = true,
+					Bee = true,
+					Robin = true,
+					Deer = false,
+					Owl = false,
+					Bunny = false,
+					Frog = false
+				}
+			}
+		},
+		Mail = {
+			Enable = false,
+			Username = "",
+			Note = "auto-shipped from main",
+			IntervalSec = 30,
+			Pet = {
+				IceSerpent = false,
+				Raccoon = false,
+				Unicorn = false,
+				GoldenDragonfly = false,
+				BlackDragon = false,
+				Monkey = false,
+				Bee = false,
+				Robin = false,
+				Deer = false,
+				Owl = false,
+				Bunny = false,
+				Frog = false
+			},
+			Seed = {
+				Rainbow = false,
+				Gold = false
+			}
+		},
+		["Plant Seed"] = {
+			Enable = true,
+			Seed = {
+				Bamboo = true,
+				Blueberry = true,
+				Tulip = true,
+				Apple = true,
+				Tomato = true,
+				Banana = true,
+				Sunflower = true,
+				Corn = true,
+				Mushroom = true,
+				Cherry = true,
+				Mango = true,
+				Grape = true,
+				Coconut = true,
+				Cactus = true,
+				["Baby Cactus"] = true,
+				Pomegranate = true,
+				Pineapple = true,
+				["Dragon Fruit"] = true,
+				["Poison Apple"] = true,
+				["Moon Bloom"] = true,
+				["Poison Ivy"] = true,
+				["Ghost Pepper"] = true,
+				["Venus Fly Trap"] = true,
+				["Dragon's Breath"] = true
+			}
+		},
+		["Buy Seed"] = {
+			Enable = true,
+			Seed = {
+				Bamboo = true,
+				Blueberry = true,
+				Tulip = true,
+				Apple = true,
+				Tomato = true,
+				Banana = true,
+				Sunflower = true,
+				Corn = true,
+				Mushroom = true,
+				Cherry = true,
+				Mango = true,
+				Grape = true,
+				Coconut = true,
+				Cactus = true,
+				["Baby Cactus"] = true,
+				Pomegranate = true,
+				Pineapple = true,
+				["Dragon Fruit"] = true,
+				["Poison Apple"] = true,
+				["Moon Bloom"] = true,
+				["Poison Ivy"] = true,
+				["Ghost Pepper"] = true,
+				["Venus Fly Trap"] = true,
+				["Dragon's Breath"] = true
+			}
+		},
+		["Buy Gear"] = {
+			Enable = false,
+			Gear = {
+				["Common Watering Can"] = true,
+				["Super Watering Can"] = true,
+				["Common Sprinkler"] = true,
+				["Uncommon Sprinkler"] = true,
+				["Rare Sprinkler"] = true,
+				["Legendary Sprinkler"] = true,
+				["Super Sprinkler"] = true
+			}
+		},
+		["Auto Water"] = {
+			Enable = false
+		},
+		["Auto Sprinkler"] = {
+			Enable = false
+		},
+		Webhook = {
+			Enable = false,
+			URL = "",
+			Username = "OneClick GAG2",
+			OnRarePet = true,
+			OnRareSeed = true,
+			PetMinPrice = 0,
+			PetRarity = {
+				Common = false,
+				Uncommon = false,
+				Rare = false,
+				Legendary = true,
+				Mythic = true,
+				Super = true,
+				Divine = true,
+				Prismatic = true
+			},
+			ProfileReport = false,
+			ProfileIntervalMin = 30
+		}
+	}
+end
+
+local Players = game:GetService("Players")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local CollectionService = game:GetService("CollectionService")
+local Networking = require(ReplicatedStorage.SharedModules.Networking)
+local PlayerStateClient = require(ReplicatedStorage.ClientModules.PlayerStateClient)
+local SeedData = require(ReplicatedStorage.SharedModules.SeedData)
+local PetData = require(ReplicatedStorage.SharedData.PetData)
+local SellValueData = require(ReplicatedStorage.SharedModules.SellValueData)
+local PetSlotPrices = require(ReplicatedStorage.SharedData.PetSlotPrices)
+local ExpansionPrices = require(ReplicatedStorage.SharedData.ExpansionPrices)
+local LocalPlayer = Players.LocalPlayer
+local Config = getgenv().Config
+local HttpService = game:GetService("HttpService")
+local t16
+local request_ = syn and syn.request or http and http.request or fluxus and fluxus.request or http_request or request
+local t17 = {}
+
+local function v140(p26, p27, p28, p29)
+	local Webhook = Config.Webhook
+
+	if not Webhook or not Webhook.Enable then
+		return
+	end
+
+	local URL = Webhook.URL
+
+	if URL and URL ~= "" then
+		if URL:lower():find("discord", 1, true) then
+			if not request_ then
+				return
+			end
+
+			local v143 = (p26 or "") .. "|" .. (p27 or "")
+			local now = os.clock()
+
+			if t17[v143] and now - t17[v143] < 30 then
+				return
+			end
+
+			t17[v143] = now
+
+			local t18 = {
+				title = p26 or "OneClick GAG2",
+				description = p27 or "",
+				color = p28 or 16770861
+			}
+			local DateTime_ = DateTime
+
+			if DateTime_ then
+				DateTime_ = DateTime.now():ToIsoDate()
+			end
+
+			t18.timestamp = DateTime_ or nil
+			t18.footer = {
+				text = "OneClick GAG2 | " .. LocalPlayer.Name
+			}
+			t18.fields = p29
+
+			local t19 = {
+				username = Webhook.Username or "OneClick GAG2",
+				embeds = { t18 }
+			}
+			local ok, result = pcall(function()
+				return HttpService:JSONEncode(t19)
+			end)
+
+			if ok then
+				task.spawn(function()
+					pcall(function()
+						request_({
+							Url = URL,
+							Method = "POST",
+							Headers = {
+								["Content-Type"] = "application/json"
+							},
+							Body = result
+						})
+					end)
+				end)
+
+				return
+			end
+
+			return
+		end
+	end
+end
+local function v150(p30, p31)
+	local Webhook = Config.Webhook
+
+	if not Webhook or not Webhook.Enable or not Webhook.OnRarePet then
+		return
+	end
+
+	local v152 = PetData[p30] or {}
+	local Rarity = v152.Rarity or "Common"
+	local BasePrice = v152.BasePrice or 0
+
+	if Webhook.PetRarity and Webhook.PetRarity[Rarity] ~= true then
+		return
+	end
+
+	if BasePrice < (Webhook.PetMinPrice or 0) then
+		return
+	end
+
+	local n7 = 16737996
+	local v156 = Rarity:lower()
+
+	if v156:find("mythic") then
+		n7 = 16724838
+	elseif v156:find("super") then
+		n7 = 16711833
+	elseif v156:find("legend") then
+		n7 = 16755200
+	elseif v156:find("rare") then
+		n7 = 49151
+	end
+
+	v140("Rare pet tamed: " .. p30, string.format("**%s** (%s)\nPrice paid: $%s", p30, Rarity, tostring(p31 or BasePrice)), n7)
+end
+local function v157(p32, p33)
+	local Webhook = Config.Webhook
+
+	if not Webhook or not Webhook.Enable or not Webhook.OnRareSeed then
+		return
+	end
+
+	if p32 == "Rainbow" then
+		v140("Rainbow Seed claimed!", string.format("Picked up Rainbow Seed (id=%s)", tostring(p33)), 16738047)
+	elseif p32 == "Gold" then
+		v140("Gold Seed claimed!", string.format("Picked up Gold Seed (id=%s)", tostring(p33)), 16766720)
+	end
+end
+local function v159(p34)
+	local v160
+
+	if p34 then
+		v160 = math.floor(p34)
+	else
+		v160 = math.floor(0)
+	end
+
+	return (tostring(v160):reverse():gsub("(%d%d%d)", "%1,"):reverse():gsub("^,", ""))
+end
+local function v161(p35)
+	local v162 = math.floor(p35 or 0)
+	local v163 = math.floor(v162 / 3600)
+	local v164 = math.floor(v162 % 3600 / 60)
+	local v165 = v162 % 60
+
+	if v163 > 0 then
+		return string.format("%dh %dm %ds", v163, v164, v165)
+	end
+
+	if v164 > 0 then
+		return string.format("%dm %ds", v164, v165)
+	end
+
+	return string.format("%ds", v165)
+end
+
+local t20 = {}
+
+for _, v in pairs(SeedData) do
+	if type(v) == "table" and v.SeedName and v.PurchasePrice then
+		t20[v.SeedName] = v
+	end
+end
+
+local function v169()
+	return PlayerStateClient:GetLocalReplica()
+end
+local function v170()
+	local v171 = v169()
+
+	return v171 and v171.Data and v171.Data.Sheckles or 0
+end
+local function v172()
+	local Character = LocalPlayer.Character
+
+	return Character, Character and Character:FindFirstChild("HumanoidRootPart")
+end
+local function v174()
+	local attribute = LocalPlayer:GetAttribute("PlotId")
+
+	return attribute and workspace.Gardens:FindFirstChild("Plot" .. attribute)
+end
+local function v176()
+	local v177 = v174()
+
+	if not v177 then
+		return nil
+	end
+
+	local PlotSizeReference = v177:FindFirstChild("PlotSizeReference")
+	local Position, Plants, vector3, n8, PrimaryPart
+
+	if PlotSizeReference then
+		Position = nil
+
+		if PlotSizeReference:IsA("BasePart") then
+			Position = PlotSizeReference.Position
+		else
+			Plants = v177:FindFirstChild("Plants")
+
+			if Plants then
+				vector3 = Vector3.zero
+				n8 = 0
+
+				for _, child in ipairs(Plants:GetChildren()) do
+					PrimaryPart = child.PrimaryPart or child:FindFirstChildWhichIsA("BasePart")
+
+					if PrimaryPart then
+						vector3 += PrimaryPart.Position
+						n8 += 1
+					end
+				end
+
+				if n8 > 0 then
+					Position = vector3 / n8
+				end
+			end
+		end
+	else
+		PlotSizeReference = v177:FindFirstChild("SpawnPoint")
+		Position = nil
+
+		if PlotSizeReference and PlotSizeReference:IsA("BasePart") then
+			Position = PlotSizeReference.Position
+		else
+			Plants = v177:FindFirstChild("Plants")
+
+			if Plants then
+				vector3 = Vector3.zero
+				n8 = 0
+
+				for _, child in ipairs(Plants:GetChildren()) do
+					PrimaryPart = child.PrimaryPart or child:FindFirstChildWhichIsA("BasePart")
+
+					if PrimaryPart then
+						vector3 += PrimaryPart.Position
+						n8 += 1
+					end
+				end
+
+				if n8 > 0 then
+					Position = vector3 / n8
+				end
+			end
+		end
+	end
+
+	if Position then
+		return CFrame.new(Position + Vector3.new(0, 2, 0))
+	end
+
+	return nil
+end
+
+local TweenService = game:GetService("TweenService")
+
+local function v189(p36)
+	local Character = p36 or LocalPlayer.Character
+
+	if not Character then
+		return
+	end
+
+	local Humanoid = Character:FindFirstChildOfClass("Humanoid")
+
+	if Humanoid then
+		Humanoid.WalkSpeed = 30
+	end
+end
+
+v189()
+LocalPlayer.CharacterAdded:Connect(function(character)
+	character:WaitForChild("Humanoid", 5)
+	v189(character)
+end)
+
+local u192
+
+local function v193()
+	if u192 then
+		return u192
+	end
+
+	local ok, result = pcall(function()
+		return require(LocalPlayer:WaitForChild("PlayerScripts"):WaitForChild("PlayerModule"))
+	end)
+
+	if ok and result then
+		local ok2, result2 = pcall(function()
+			return result:GetClickToMoveController()
+		end)
+
+		if ok2 then
+			u192 = result2
+		end
+	end
+
+	return u192
+end
+local function v198(p37)
+	local _, v200 = v172()
+
+	if not v200 then
+		return false
+	end
+
+	local Position = typeof(p37) == "CFrame" and p37.Position or typeof(p37) == "Vector3" and p37 or nil
+
+	if not Position then
+		return false
+	end
+
+	if (Position - v200.Position).Magnitude < 1 then
+		return true
+	end
+
+	v189()
+
+	local v202 = v193()
+
+	if v202 then
+		pcall(function()
+			v202:MoveTo(Position, true, false)
+		end)
+
+		return true
+	end
+
+	return false
+end
+local function v203(p38)
+	local _, v205 = v172()
+
+	if not v205 then
+		return false
+	end
+
+	local cFrame = typeof(p38) == "CFrame" and p38 or typeof(p38) == "Vector3" and CFrame.new(p38) or nil
+
+	if not cFrame then
+		return false
+	end
+
+	local Position = v205.Position
+	local Magnitude = (cFrame.Position - Position).Magnitude
+
+	if Magnitude < 1 then
+		return true
+	end
+
+	local v209 = math.max(1, math.ceil(Magnitude / 25))
+
+	for i = 1, v209 do
+		local v211 = Position:Lerp(cFrame.Position, i / v209)
+		local cFrame2 = CFrame.new(v211, v211 + cFrame.LookVector)
+
+		TweenService:Create(v205, TweenInfo.new(0.5, Enum.EasingStyle.Linear), {
+			CFrame = cFrame2
+		}):Play()
+
+		if i < v209 then
+			task.wait(0.05)
+		end
+	end
+
+	return true
+end
+local function v213()
+	local v214 = v176()
+
+	if v214 then
+		return v198(v214)
+	end
+
+	return false
+end
+local function v215(p39)
+	if not p39 or not p39.Parent then
+		return false
+	end
+
+	local Character = LocalPlayer.Character
+	local Humanoid = Character and Character:FindFirstChildOfClass("Humanoid")
+
+	if not Humanoid then
+		return false
+	end
+
+	if p39.Parent == Character then
+		return true
+	end
+
+	pcall(function()
+		Humanoid:UnequipTools()
+	end)
+	task.wait(0.05)
+
+	local Backpack = LocalPlayer:FindFirstChildOfClass("Backpack")
+
+	if Backpack and p39.Parent ~= Backpack and p39.Parent ~= Character then
+		p39.Parent = Backpack
+		task.wait(0.04)
+	end
+
+	pcall(function()
+		Humanoid:EquipTool(p39)
+	end)
+	task.wait(0.1)
+
+	return p39.Parent == Character
+end
+local function v219(p40, p41)
+	local v220 = ReplicatedStorage.StockValues:FindFirstChild(p40)
+
+	if not v220 then
+		return 0
+	end
+
+	local Items = v220:FindFirstChild("Items")
+
+	if not Items then
+		return 0
+	end
+
+	local v222 = Items:FindFirstChild(p41)
+	local Value = v222 and v222.Value
+
+	if Value then
+		return Value
+	end
+
+	return 0
+end
+local function v224(p42)
+	local autoBuy = Config.Pet and Config.Pet["Auto Buy"]
+
+	if autoBuy and autoBuy.Enable then
+		return (autoBuy.Pet and autoBuy.Pet[p42]) == true
+	end
+
+	return false
+end
+local function v226()
+	local autoBuy = Config.Pet and Config.Pet["Auto Buy"]
+
+	if not autoBuy or not autoBuy.Enable then
+		return nil
+	end
+
+	local v228 = v170()
+	local WildPetSpawns = workspace.Map and workspace.Map:FindFirstChild("WildPetSpawns")
+
+	if not WildPetSpawns then
+		return nil
+	end
+
+	local t21
+
+	for _, child in ipairs(WildPetSpawns:GetChildren()) do
+		if child:IsA("Model") and child.Parent then
+			local attribute = child:GetAttribute("PetName")
+			local v234 = attribute and PetData[attribute]
+
+			if v234 and v234.BasePrice and v234.BasePrice <= v228 and v224(attribute) and (not t21 or t21.price < v234.BasePrice) then
+				t21 = {
+					model = child,
+					name = attribute,
+					price = v234.BasePrice
+				}
+			end
+		end
+	end
+
+	if t21 then
+		return t21.model, t21.name, t21.price
+	end
+
+	return nil
+end
+local function v235(p43)
+	if not p43 or not p43.Parent then
+		return false
+	end
+
+	local v236
+
+	for _, descendant in ipairs(p43:GetDescendants()) do
+		if descendant:IsA("ProximityPrompt") and descendant.ActionText == "Buy" and descendant.Enabled then
+			v236 = descendant
+
+			break
+		end
+	end
+
+	if not v236 then
+		return false
+	end
+
+	local HumanoidRootPart = p43:FindFirstChild("HumanoidRootPart") or p43.PrimaryPart
+	local _, v241 = v172()
+
+	if HumanoidRootPart and v241 then
+		v241.CFrame = CFrame.new(HumanoidRootPart.Position + Vector3.new(0, 3, 0))
+		task.wait(0.15)
+	end
+
+	pcall(function()
+		Networking.Pets.WildPetTame:Fire(p43)
+	end)
+
+	if fireproximityprompt then
+		pcall(function()
+			v236.MaxActivationDistance = 1000
+			fireproximityprompt(v236)
+		end)
+	end
+
+	return true
+end
+local function v242()
+	local v243 = v169()
+	local Inventory = v243 and v243.Data and v243.Data.Inventory
+
+	Inventory = Inventory and v243.Data.Inventory.Pets
+
+	if not Inventory then
+		return
+	end
+
+	local attribute = LocalPlayer:GetAttribute("MaxEquippedPets")
+
+	if attribute then
+		local t22 = {}
+
+		for k, v in pairs(Inventory) do
+			if type(v) == "table" and v.Name then
+				local v249 = PetData[v.Name]
+
+				table.insert(t22, {
+					id = k,
+					name = v.Name,
+					price = v249 and v249.BasePrice or 0
+				})
+			end
+		end
+
+		table.sort(t22, function(p44, p45)
+			return p44.price > p45.price
+		end)
+
+		local t23 = {}
+
+		for i = 1, math.min(attribute, #t22) do
+			t23[t22[i].id] = true
+		end
+
+		local v252 = Networking.Pets.GetEquippedPets:Fire() or {}
+		local t24 = {}
+
+		for _, v in ipairs(v252) do
+			t24[v.Id] = true
+		end
+
+		for k in pairs(t24) do
+			if not t23[k] then
+				Networking.Pets.RequestToggleFollower:Fire(k)
+				task.wait(0.2)
+			end
+		end
+
+		for k in pairs(t23) do
+			if not t24[k] then
+				Networking.Pets.RequestToggleFollower:Fire(k)
+				task.wait(0.2)
+			end
+		end
+	else
+		local t25 = {}
+
+		for k, v in pairs(Inventory) do
+			if type(v) == "table" and v.Name then
+				local v261 = PetData[v.Name]
+
+				table.insert(t25, {
+					id = k,
+					name = v.Name,
+					price = v261 and v261.BasePrice or 0
+				})
+			end
+		end
+
+		table.sort(t25, function(p46, p47)
+			return p46.price > p47.price
+		end)
+
+		local t26 = {}
+
+		for i = 1, math.min(3, #t25) do
+			t26[t25[i].id] = true
+		end
+
+		local v264 = Networking.Pets.GetEquippedPets:Fire() or {}
+		local t27 = {}
+
+		for _, v in ipairs(v264) do
+			t27[v.Id] = true
+		end
+
+		for k in pairs(t27) do
+			if not t26[k] then
+				Networking.Pets.RequestToggleFollower:Fire(k)
+				task.wait(0.2)
+			end
+		end
+
+		for k in pairs(t26) do
+			if not t27[k] then
+				Networking.Pets.RequestToggleFollower:Fire(k)
+				task.wait(0.2)
+			end
+		end
+	end
+end
+local function v270(p48)
+	local plantSeed = Config["Plant Seed"]
+
+	if plantSeed and plantSeed.Enable then
+		return plantSeed.Seed and plantSeed.Seed[p48] == true
+	end
+
+	return false
+end
+local function v272(p49)
+	local plantSeed = Config["Plant Seed"]
+	local t28 = {
+		"Carrot",
+		"Green Bean",
+		"Horned Melon",
+		"Glow Mushroom",
+		"Romanesco",
+		"Strawberry"
+	}
+
+	if not plantSeed or not plantSeed.Enable then
+		return nil
+	end
+
+	local t29 = {
+		Rainbow = true,
+		Gold = true
+	}
+
+	for _, v in ipairs({
+		LocalPlayer:FindFirstChildOfClass("Backpack"),
+		LocalPlayer.Character
+	}) do
+		if v then
+			for _, child in ipairs(v:GetChildren()) do
+				if child:IsA("Tool") and child:GetAttribute("SeedTool") then
+					local attribute = child:GetAttribute("SeedTool")
+
+					if p49 then
+						if attribute and table.find(t28, attribute) then
+							return child, attribute
+						end
+
+						continue
+					end
+
+					if attribute and not t29[attribute] and v270(attribute) then
+						return child, attribute
+					end
+				end
+			end
+		end
+	end
+
+	return nil
+end
+local function v281()
+	local v282 = v174()
+
+	if not v282 then
+		return {}
+	end
+
+	local t30 = {}
+
+	for _, v in ipairs(CollectionService:GetTagged("PlantArea")) do
+		if v:IsDescendantOf(v282) and v:IsA("BasePart") then
+			table.insert(t30, v)
+		end
+	end
+
+	return t30
+end
+local function v286(p50, p51)
+	if not p50 or not p51 then
+		return false
+	end
+
+	if not v215(p50) then
+		return false
+	end
+
+	local v287 = v281()
+
+	if #v287 == 0 then
+		return false
+	end
+
+	local v288 = v287[math.random(1, #v287)]
+	local CFrame_ = v288.CFrame
+	local Size = v288.Size
+	local v291 = math.max(0, Size.X / 2 - 1)
+	local v292 = math.max(0, Size.Z / 2 - 1)
+	local v293 = CFrame_:PointToWorldSpace(Vector3.new((math.random() * 2 - 1) * v291, Size.Y / 2 + 0.6, (math.random() * 2 - 1) * v292))
+
+	pcall(function()
+		Networking.Plant.PlantSeed:Fire(v293, p51, p50)
+	end)
+
+	return true
+end
+local function v294(p52)
+	local Parent = p52.Parent
+
+	while Parent and Parent ~= workspace do
+		if Parent:IsA("Model") then
+			if Parent:GetAttribute("PlantId") and Parent:GetAttribute("SeedName") then
+				return Parent
+			end
+		end
+
+		Parent = Parent.Parent
+	end
+
+	return nil
+end
+local function v296()
+	local attribute = LocalPlayer:GetAttribute("FruitCount") or 0
+
+	if (LocalPlayer:GetAttribute("MaxFruitCapacity") or 100) <= attribute then
+		return nil
+	end
+
+	local v298 = v174()
+
+	if not v298 then
+		return nil
+	end
+
+	local t31 = {}
+
+	for _, v in ipairs(CollectionService:GetTagged("HarvestPrompt")) do
+		if v:IsA("ProximityPrompt") and v.Enabled and v:GetAttribute("Collected") ~= true and v:IsDescendantOf(v298) then
+			local v302 = v294(v)
+
+			if v302 then
+				local attribute2 = v302:GetAttribute("SeedName")
+
+				if attribute2 then
+					table.insert(t31, {
+						prompt = v,
+						model = v302,
+						name = attribute2,
+						sell = SellValueData[attribute2] or 0
+					})
+				end
+			end
+		end
+	end
+
+	if #t31 == 0 then
+		return nil
+	end
+
+	table.sort(t31, function(p53, p54)
+		return p53.sell > p54.sell
+	end)
+
+	return t31[1].prompt, t31[1].model, t31[1].name
+end
+local function v304()
+	local v305 = v174()
+
+	if not v305 then
+		return false
+	end
+
+	for _, v in ipairs(CollectionService:GetTagged("HarvestPrompt")) do
+		if v:IsA("ProximityPrompt") then
+			if not v.Enabled then
+				continue
+			end
+
+			if v:GetAttribute("Collected") == true then
+				continue
+			end
+
+			if v:IsDescendantOf(v305) then
+				return true
+			end
+		end
+	end
+
+	return false
+end
+local function v308()
+	local attribute = LocalPlayer:GetAttribute("FruitCount") or 0
+
+	if attribute <= 0 then
+		return false
+	end
+
+	local attribute2 = LocalPlayer:GetAttribute("MaxFruitCapacity") or 100
+	local v311 = attribute >= 100
+	local v312 = not v304()
+
+	return attribute >= attribute2 - 1 or v311 or v312
+end
+local function v313()
+	pcall(function()
+		Networking.NPCS.SellAll:Fire()
+	end)
+end
+
+local n9 = 0
+local u315
+
+local function v316()
+	local Mail = Config.Mail
+
+	if not Mail or not Mail.Enable then
+		return nil
+	end
+
+	if u315 then
+		return u315
+	end
+
+	local Username = Mail.Username
+
+	if Username then
+		if Username ~= "" then
+			local v319 = Username:gsub("^@", ""):gsub("^%s+", ""):gsub("%s+$", "")
+			local userIdFromNameAsync
+
+			if Networking.Mailbox and Networking.Mailbox.LookupPlayer then
+				local ok, result = pcall(function()
+					return Networking.Mailbox.LookupPlayer:Fire(v319)
+				end)
+
+				if ok and type(result) == "number" and result > 0 then
+					userIdFromNameAsync = result
+				end
+
+				if not userIdFromNameAsync then
+					pcall(function()
+						userIdFromNameAsync = Players:GetUserIdFromNameAsync(v319)
+					end)
+				end
+			else
+				pcall(function()
+					userIdFromNameAsync = Players:GetUserIdFromNameAsync(v319)
+				end)
+			end
+
+			if userIdFromNameAsync and userIdFromNameAsync > 0 then
+				u315 = userIdFromNameAsync
+
+				return userIdFromNameAsync
+			end
+
+			return nil
+		end
+	end
+
+	return nil
+end
+local function v323()
+	local Mail = Config.Mail
+
+	if Mail then
+		if Mail.Enable then
+			local t32 = {}
+			local v326 = v169()
+
+			if not v326 or not v326.Data then
+				return t32
+			end
+
+			local Inventory = v326.Data.Inventory
+
+			if not Inventory then
+				return t32
+			end
+
+			local t33 = {}
+
+			pcall(function()
+				local v329 = Networking.Pets.GetEquippedPets:Fire() or {}
+
+				for _, v in ipairs(v329) do
+					if v.Id then
+						t33[v.Id] = true
+					end
+				end
+			end)
+
+			if Inventory.Pets then
+				for k, pet in pairs(Inventory.Pets) do
+					if #t32 >= 20 then
+						break
+					end
+
+					if not t33[k] and type(pet) == "table" and pet.Name and Mail.Pet[pet.Name] == true then
+						table.insert(t32, {
+							Category = "Pets",
+							ItemKey = k,
+							Count = 1
+						})
+					end
+				end
+			end
+
+			if Inventory.Seeds then
+				for k, seed in pairs(Inventory.Seeds) do
+					if #t32 >= 20 then
+						break
+					end
+
+					if Mail.Seed and Mail.Seed[k] == true then
+						local v336 = type(seed) == "number" and seed or 1
+
+						if v336 > 0 then
+							table.insert(t32, {
+								Category = "Seeds",
+								ItemKey = k,
+								Count = v336
+							})
+						end
+					end
+				end
+			end
+
+			return t32
+		end
+	end
+
+	return {}
+end
+local function v337()
+	local Mail = Config.Mail
+
+	if not Mail or not Mail.Enable then
+		return nil
+	end
+
+	if not Networking.Mailbox or not Networking.Mailbox.SendBatch then
+		return nil
+	end
+
+	if os.clock() - n9 < (Mail.IntervalSec or 30) then
+		return nil
+	end
+
+	local v339 = v316()
+
+	if not v339 then
+		return nil
+	end
+
+	local v340 = v323()
+
+	if #v340 == 0 then
+		return nil
+	end
+
+	return v339, v340
+end
+local function v341(p55, p56)
+	if p55 and p56 then
+		if #p56 ~= 0 then
+			n9 = os.clock()
+
+			local Note = Config.Mail and Config.Mail.Note or ""
+
+			return pcall(function()
+				Networking.Mailbox.SendBatch:Fire(p55, p56, Note)
+			end)
+		end
+	end
+
+	return false
+end
+
+DetectCollectEvent = function()
+	local Map = workspace:FindFirstChild("Map")
+
+	if not Map then
+		return
+	end
+
+	local SeedPackSpawnServerLocations = Map:FindFirstChild("SeedPackSpawnServerLocations")
+
+	if not SeedPackSpawnServerLocations then
+		return
+	end
+
+	for _, v in SeedPackSpawnServerLocations:GetChildren() do
+		if v:IsA("BasePart") then
+			local ProximityPrompt = v:FindFirstChild("ProximityPrompt", true)
+
+			if ProximityPrompt and ProximityPrompt.Enabled then
+				return v, ProximityPrompt
+			end
+		end
+	end
+end
+
+local function v348(p57)
+	local spilled = {}
+	local _
+	local state = 1
+	local v392, v393, Plants, maxPlantFruit, Backpack, v397, v398, v399, v400, v401, v402, v403, v404, v405, v406, v407, v408, v409, v410, v411, v412, v413, v414, v415, v416, v417, v418, v419, v420, v421, v422, v423, v424, v425, forIter6, forState6, forControl6, v429, v430, v431, v432, v433, v434, v435, forIter7, forState7, forControl7, v439, attribute, attribute2, v442, Backpack2, v444, v445, v446, v447, v448, forIter8, forState8, forControl8, v452, v453, v454, v455, v456, forIter9, forState9, forControl9, v460, v461, v462, v463, forIter10, forState10, forControl10, v467, v468, v469, v470, v471, forIter11, forState11, forControl11, v475, v476, v477, v478, v479, forIter12, forState12, forControl12, v483, v484, v485, v486, v487, v488, forIter13, forState13, forControl13, v492, v493, v494, v495, forIter14, forState14, forControl14, v499, v500, v501, v502, forIter15, forState15, forControl15, attribute3, attribute4, v508
+
+	while true do
+		if state <= 3 then
+			if state == 1 then
+				v392 = p57
+
+				if getgenv().IgnoredPlantShovel then
+					state = 3
+				else
+					state = 2
+				end
+			elseif state == 2 then
+				getgenv().IgnoredPlantShovel = {}
+				state = 3
+			elseif state == 3 then
+				v393 = v174()
+
+				if v393 then
+					state = 5
+				else
+					state = 4
+				end
+			end
+		elseif state <= 6 then
+			if state == 4 then
+				return nil
+			end
+
+			if state == 5 then
+				Plants = v393:FindFirstChild("Plants")
+
+				if Plants then
+					state = 7
+				else
+					state = 6
+				end
+			elseif state == 6 then
+				return nil
+			end
+		elseif state <= 9 then
+			if state == 7 then
+				maxPlantFruit = Config["Max Plant Fruit"]
+
+				if maxPlantFruit then
+					state = 72
+				else
+					state = 8
+				end
+			elseif state == 8 then
+				if #Plants:GetChildren() < 200 then
+					state = 9
+				else
+					state = 10
+				end
+			elseif state == 9 then
+				return nil
+			end
+		elseif state <= 12 then
+			if state == 10 then
+				Backpack = LocalPlayer:FindFirstChildOfClass("Backpack")
+
+				if Backpack then
+					state = 12
+				else
+					state = 11
+				end
+			elseif state == 11 then
+				return nil
+			elseif state == 12 then
+				v397 = nil
+				v398 = SellValueData[v392]
+
+				if v398 then
+					state = 35
+				else
+					state = 13
+				end
+			end
+		elseif state <= 15 then
+			if state == 13 then
+				v399, v400, v401 = ipairs({
+					Backpack,
+					LocalPlayer.Character
+				})
+				v402 = geniter(v399, v400, v401)
+				state = 14
+			elseif state == 14 then
+				spilled.forIter, spilled.forState, spilled.forControl = v399, v400, v401
+
+				if type(spilled.forIter) == 'table' then
+					spilled.forMeta = getmetatable(spilled.forIter)
+
+					if type(spilled.forMeta) == 'table' and spilled.forMeta['__iter'] then
+						spilled.forIter, spilled.forState, spilled.forControl = (spilled.forMeta['__iter'](spilled.forIter))
+					else
+						spilled.forIter, spilled.forState, spilled.forControl = next, spilled.forIter, nil
+					end
+				end
+
+				state = 15
+			elseif state == 15 then
+				local v509
+
+				v509, v403 = (spilled.forIter(spilled.forState, spilled.forControl))
+
+				if v509 == nil then
+					state = 16
+				else
+					spilled.forControl = v509
+					state = 17
+				end
+			end
+		elseif state <= 18 then
+			if state == 16 then
+				return nil
+			end
+
+			if state == 17 then
+				if v403 then
+					state = 18
+				else
+					state = 15
+				end
+			elseif state == 18 then
+				do
+					local v510, v511, v512 = ipairs(v403:GetChildren())
+					local v513 = geniter(v510, v511, v512)
+					local v514 = table.pack(v513())
+				end
+
+				if t255_703_1[1] then
+					state = 19
+				else
+					state = 15
+				end
+			end
+		elseif state <= 21 then
+			if state == 19 then
+				v404 = t255_703_1[3]
+				state = 20
+			elseif state == 20 then
+				if v404:IsA("Tool") then
+					state = 27
+				else
+					state = 21
+				end
+			elseif state == 21 then
+				spilled.forIter2, spilled.forState2, spilled.forControl2 = v405, v406, v407
+
+				if type(spilled.forIter2) == 'table' then
+					spilled.forMeta2 = getmetatable(spilled.forIter2)
+
+					if type(spilled.forMeta2) == 'table' and spilled.forMeta2['__iter'] then
+						spilled.forIter2, spilled.forState2, spilled.forControl2 = (spilled.forMeta2['__iter'](spilled.forIter2))
+					else
+						spilled.forIter2, spilled.forState2, spilled.forControl2 = next, spilled.forIter2, nil
+					end
+				end
+
+				state = 22
+			end
+		elseif state <= 24 then
+			if state == 22 then
+				local v515
+
+				v515, v404 = (spilled.forIter2(spilled.forState2, spilled.forControl2))
+
+				if v515 == nil then
+					state = 23
+				else
+					spilled.forControl2 = v515
+					state = 20
+				end
+			elseif state == 23 then
+				local v516 = table.pack(v402())
+
+				if v516[1] then
+					state = 24
+				else
+					state = 26
+				end
+			elseif state == 24 then
+				v408 = t275_758_1[3]
+
+				if v408 then
+					state = 25
+				else
+					state = 23
+				end
+			end
+		elseif state <= 27 then
+			if state == 25 then
+				v405, v406, v407 = ipairs(v408:GetChildren())
+				state = 22
+			elseif state == 26 then
+				return nil
+			elseif state == 27 then
+				if v404:GetAttribute("Shovel") and not v397 then
+					state = 28
+				else
+					state = 29
+				end
+			end
+		elseif state <= 30 then
+			if state == 28 then
+				v397 = v404
+				state = 29
+			elseif state == 29 then
+				spilled.forIter3, spilled.forState3, spilled.forControl3 = v409, v410, v411
+
+				if type(spilled.forIter3) == 'table' then
+					spilled.forMeta3 = getmetatable(spilled.forIter3)
+
+					if type(spilled.forMeta3) == 'table' and spilled.forMeta3['__iter'] then
+						spilled.forIter3, spilled.forState3, spilled.forControl3 = (spilled.forMeta3['__iter'](spilled.forIter3))
+					else
+						spilled.forIter3, spilled.forState3, spilled.forControl3 = next, spilled.forIter3, nil
+					end
+				end
+
+				state = 30
+			elseif state == 30 then
+				local v517
+
+				v517, v404 = (spilled.forIter3(spilled.forState3, spilled.forControl3))
+
+				if v517 == nil then
+					state = 31
+				else
+					spilled.forControl3 = v517
+					state = 20
+				end
+			end
+		elseif state <= 33 then
+			if state == 31 then
+				local v518 = table.pack(v402())
+
+				if v518[1] then
+					state = 32
+				else
+					state = 34
+				end
+			elseif state == 32 then
+				v412 = t275_729_1[3]
+
+				if v412 then
+					state = 33
+				else
+					state = 31
+				end
+			elseif state == 33 then
+				v409, v410, v411 = ipairs(v412:GetChildren())
+				state = 30
+			end
+		elseif state <= 36 then
+			if state == 34 then
+				return nil
+			end
+
+			if state == 35 then
+				v413, v414, v415 = ipairs({
+					Backpack,
+					LocalPlayer.Character
+				})
+				v416 = geniter(v413, v414, v415)
+				state = 36
+			elseif state == 36 then
+				spilled.forIter4, spilled.forState4, spilled.forControl4 = v413, v414, v415
+
+				if type(spilled.forIter4) == 'table' then
+					spilled.forMeta4 = getmetatable(spilled.forIter4)
+
+					if type(spilled.forMeta4) == 'table' and spilled.forMeta4['__iter'] then
+						spilled.forIter4, spilled.forState4, spilled.forControl4 = (spilled.forMeta4['__iter'](spilled.forIter4))
+					else
+						spilled.forIter4, spilled.forState4, spilled.forControl4 = next, spilled.forIter4, nil
+					end
+				end
+
+				state = 37
+			end
+		elseif state <= 39 then
+			if state == 37 then
+				local v519
+
+				v519, v417 = (spilled.forIter4(spilled.forState4, spilled.forControl4))
+
+				if v519 == nil then
+					state = 38
+				else
+					spilled.forControl4 = v519
+					state = 39
+				end
+			elseif state == 38 then
+				return nil
+			elseif state == 39 then
+				if v417 then
+					state = 40
+				else
+					state = 37
+				end
+			end
+		elseif state <= 42 then
+			if state == 40 then
+				do
+					local v520, v521, v522 = ipairs(v417:GetChildren())
+					local v523 = geniter(v520, v521, v522)
+					local v524 = table.pack(v523())
+				end
+
+				if t255_495_1[1] then
+					state = 41
+				else
+					state = 37
+				end
+			elseif state == 41 then
+				v418 = t255_495_1[3]
+				state = 42
+			elseif state == 42 then
+				if v418:IsA("Tool") then
+					state = 48
+				else
+					state = 43
+				end
+			end
+		elseif state <= 45 then
+			if state == 43 then
+				spilled.forIter5, spilled.forState5, spilled.forControl5 = v419, v420, v421
+
+				if type(spilled.forIter5) == 'table' then
+					local forMeta5 = getmetatable(spilled.forIter5)
+
+					if type(forMeta5) == 'table' and forMeta5['__iter'] then
+						spilled.forIter5, spilled.forState5, spilled.forControl5 = (forMeta5['__iter'](spilled.forIter5))
+					else
+						spilled.forIter5, spilled.forState5, spilled.forControl5 = next, spilled.forIter5, nil
+					end
+				end
+
+				state = 44
+			elseif state == 44 then
+				local v526
+
+				v526, v418 = (spilled.forIter5(spilled.forState5, spilled.forControl5))
+
+				if v526 == nil then
+					state = 45
+				else
+					spilled.forControl5 = v526
+					state = 42
+				end
+			elseif state == 45 then
+				local v527 = table.pack(v416())
+
+				if v527[1] then
+					state = 46
+				else
+					state = 55
+				end
+			end
+		elseif state <= 48 then
+			if state == 46 then
+				v422 = t275_652_1[3]
+
+				if v422 then
+					state = 47
+				else
+					state = 45
+				end
+			elseif state == 47 then
+				v419, v420, v421 = ipairs(v422:GetChildren())
+				state = 44
+			elseif state == 48 then
+				if v418:GetAttribute("Shovel") and not v397 then
+					state = 49
+				else
+					state = 50
+				end
+			end
+		elseif state <= 51 then
+			if state == 49 then
+				v397 = v418
+				state = 50
+			elseif state == 50 then
+				forIter6, forState6, forControl6 = v423, v424, v425
+
+				if type(forIter6) == 'table' then
+					local forMeta6 = getmetatable(forIter6)
+
+					if type(forMeta6) == 'table' and forMeta6['__iter'] then
+						forIter6, forState6, forControl6 = (forMeta6['__iter'](forIter6))
+					else
+						forIter6, forState6, forControl6 = next, forIter6, nil
+					end
+				end
+
+				state = 51
+			elseif state == 51 then
+				local v529
+
+				v529, v418 = (forIter6(forState6, forControl6))
+
+				if v529 == nil then
+					state = 52
+				else
+					forControl6 = v529
+					state = 42
+				end
+			end
+		elseif state <= 54 then
+			if state == 52 then
+				local v530 = table.pack(v416())
+
+				if v530[1] then
+					state = 53
+				else
+					state = 55
+				end
+			elseif state == 53 then
+				v429 = t275_521_1[3]
+
+				if v429 then
+					state = 54
+				else
+					state = 52
+				end
+			elseif state == 54 then
+				v423, v424, v425 = ipairs(v429:GetChildren())
+				state = 51
+			end
+		elseif state <= 57 then
+			if state == 55 then
+				if v397 and v398 ~= 0 then
+					state = 57
+				else
+					state = 56
+				end
+			elseif state == 56 then
+				return nil
+			elseif state == 57 then
+				v430 = v398
+				v431 = nil
+				v432, v433, v434 = ipairs(Plants:GetChildren())
+				v435 = geniter(v432, v433, v434)
+				state = 58
+			end
+		elseif state <= 60 then
+			if state == 58 then
+				forIter7, forState7, forControl7 = v432, v433, v434
+
+				if type(forIter7) == 'table' then
+					local forMeta7 = getmetatable(forIter7)
+
+					if type(forMeta7) == 'table' and forMeta7['__iter'] then
+						forIter7, forState7, forControl7 = (forMeta7['__iter'](forIter7))
+					else
+						forIter7, forState7, forControl7 = next, forIter7, nil
+					end
+				end
+
+				state = 59
+			elseif state == 59 then
+				local v532
+
+				v532, v439 = (forIter7(forState7, forControl7))
+
+				if v532 == nil then
+					state = 60
+				else
+					forControl7 = v532
+					state = 61
+				end
+			elseif state == 60 then
+				return nil
+			end
+		elseif state <= 63 then
+			if state == 61 then
+				attribute = v439:GetAttribute("SeedName")
+				attribute2 = v439:GetAttribute("PlantId")
+
+				if attribute and attribute2 then
+					state = 64
+				else
+					state = 62
+				end
+			elseif state == 62 then
+				local v533 = table.pack(v435())
+
+				if v533[1] then
+					state = 63
+				else
+					state = 145
+				end
+			elseif state == 63 then
+				v439 = t253_619_1[3]
+				state = 61
+			end
+		elseif state <= 66 then
+			if state == 64 then
+				if table.find(getgenv().IgnoredPlantShovel, attribute2) then
+					state = 70
+				else
+					state = 65
+				end
+			elseif state == 65 then
+				v442 = SellValueData[attribute]
+
+				if v442 then
+					state = 68
+				else
+					state = 66
+				end
+			elseif state == 66 then
+				local v534 = table.pack(v435())
+
+				if v534[1] then
+					state = 67
+				else
+					state = 145
+				end
+			end
+		elseif state <= 69 then
+			if state == 67 then
+				v439 = t253_608_1[3]
+				state = 61
+			elseif state == 68 then
+				if v442 > 0 and v442 < v430 and (not v431 or v442 < v431.sell) then
+					state = 69
+				else
+					state = 70
+				end
+			elseif state == 69 then
+				v431 = {
+					id = attribute2,
+					model = v439,
+					sell = v442
+				}
+				state = 70
+			end
+		elseif state <= 72 then
+			if state == 70 then
+				local v535 = table.pack(v435())
+
+				if v535[1] then
+					state = 71
+				else
+					state = 145
+				end
+			elseif state == 71 then
+				v439 = t253_571_1[3]
+				state = 61
+			elseif state == 72 then
+				if maxPlantFruit > #Plants:GetChildren() then
+					state = 73
+				else
+					state = 74
+				end
+			end
+		elseif state <= 75 then
+			if state == 73 then
+				return nil
+			end
+
+			if state == 74 then
+				Backpack2 = LocalPlayer:FindFirstChildOfClass("Backpack")
+
+				if Backpack2 then
+					state = 76
+				else
+					state = 75
+				end
+			elseif state == 75 then
+				return nil
+			end
+		elseif state <= 78 then
+			if state == 76 then
+				v397 = nil
+				v444 = SellValueData[v392]
+
+				if v444 then
+					state = 99
+				else
+					state = 77
+				end
+			elseif state == 77 then
+				v445, v446, v447 = ipairs({
+					Backpack2,
+					LocalPlayer.Character
+				})
+				v448 = geniter(v445, v446, v447)
+				state = 78
+			elseif state == 78 then
+				forIter8, forState8, forControl8 = v445, v446, v447
+
+				if type(forIter8) == 'table' then
+					local forMeta8 = getmetatable(forIter8)
+
+					if type(forMeta8) == 'table' and forMeta8['__iter'] then
+						forIter8, forState8, forControl8 = (forMeta8['__iter'](forIter8))
+					else
+						forIter8, forState8, forControl8 = next, forIter8, nil
+					end
+				end
+
+				state = 79
+			end
+		elseif state <= 81 then
+			if state == 79 then
+				local v537
+
+				v537, v452 = (forIter8(forState8, forControl8))
+
+				if v537 == nil then
+					state = 80
+				else
+					forControl8 = v537
+					state = 81
+				end
+			elseif state == 80 then
+				return nil
+			elseif state == 81 then
+				if v452 then
+					state = 82
+				else
+					state = 79
+				end
+			end
+		elseif state <= 84 then
+			if state == 82 then
+				do
+					local v538, v539, v540 = ipairs(v452:GetChildren())
+					local v541 = geniter(v538, v539, v540)
+					local v542 = table.pack(v541())
+				end
+
+				if t255_367_1[1] then
+					state = 83
+				else
+					state = 79
+				end
+			elseif state == 83 then
+				v453 = t255_367_1[3]
+				state = 84
+			elseif state == 84 then
+				if v453:IsA("Tool") then
+					state = 91
+				else
+					state = 85
+				end
+			end
+		elseif state <= 87 then
+			if state == 85 then
+				forIter9, forState9, forControl9 = v454, v455, v456
+
+				if type(forIter9) == 'table' then
+					local forMeta9 = getmetatable(forIter9)
+
+					if type(forMeta9) == 'table' and forMeta9['__iter'] then
+						forIter9, forState9, forControl9 = (forMeta9['__iter'](forIter9))
+					else
+						forIter9, forState9, forControl9 = next, forIter9, nil
+					end
+				end
+
+				state = 86
+			elseif state == 86 then
+				local v544
+
+				v544, v453 = (forIter9(forState9, forControl9))
+
+				if v544 == nil then
+					state = 87
+				else
+					forControl9 = v544
+					state = 84
+				end
+			elseif state == 87 then
+				local v545 = table.pack(v448())
+
+				if v545[1] then
+					state = 88
+				else
+					state = 90
+				end
+			end
+		elseif state <= 90 then
+			if state == 88 then
+				v460 = t275_422_1[3]
+
+				if v460 then
+					state = 89
+				else
+					state = 87
+				end
+			elseif state == 89 then
+				v454, v455, v456 = ipairs(v460:GetChildren())
+				state = 86
+			elseif state == 90 then
+				return nil
+			end
+		elseif state <= 93 then
+			if state == 91 then
+				if v453:GetAttribute("Shovel") and not v397 then
+					state = 92
+				else
+					state = 93
+				end
+			elseif state == 92 then
+				v397 = v453
+				state = 93
+			elseif state == 93 then
+				forIter10, forState10, forControl10 = v461, v462, v463
+
+				if type(forIter10) == 'table' then
+					local forMeta10 = getmetatable(forIter10)
+
+					if type(forMeta10) == 'table' and forMeta10['__iter'] then
+						forIter10, forState10, forControl10 = (forMeta10['__iter'](forIter10))
+					else
+						forIter10, forState10, forControl10 = next, forIter10, nil
+					end
+				end
+
+				state = 94
+			end
+		elseif state <= 96 then
+			if state == 94 then
+				local v547
+
+				v547, v453 = (forIter10(forState10, forControl10))
+
+				if v547 == nil then
+					state = 95
+				else
+					forControl10 = v547
+					state = 84
+				end
+			elseif state == 95 then
+				local v548 = table.pack(v448())
+
+				if v548[1] then
+					state = 96
+				else
+					state = 98
+				end
+			elseif state == 96 then
+				v467 = t275_393_1[3]
+
+				if v467 then
+					state = 97
+				else
+					state = 95
+				end
+			end
+		elseif state <= 99 then
+			if state == 97 then
+				v461, v462, v463 = ipairs(v467:GetChildren())
+				state = 94
+			elseif state == 98 then
+				return nil
+			elseif state == 99 then
+				v468, v469, v470 = ipairs({
+					Backpack2,
+					LocalPlayer.Character
+				})
+				v471 = geniter(v468, v469, v470)
+				state = 100
+			end
+		elseif state <= 102 then
+			if state == 100 then
+				forIter11, forState11, forControl11 = v468, v469, v470
+
+				if type(forIter11) == 'table' then
+					local forMeta11 = getmetatable(forIter11)
+
+					if type(forMeta11) == 'table' and forMeta11['__iter'] then
+						forIter11, forState11, forControl11 = (forMeta11['__iter'](forIter11))
+					else
+						forIter11, forState11, forControl11 = next, forIter11, nil
+					end
+				end
+
+				state = 101
+			elseif state == 101 then
+				local v550
+
+				v550, v475 = (forIter11(forState11, forControl11))
+
+				if v550 == nil then
+					state = 102
+				else
+					forControl11 = v550
+					state = 104
+				end
+			elseif state == 102 then
+				state = 103
+			end
+		elseif state <= 105 then
+			if state == 103 then
+				return nil
+			elseif state == 104 then
+				if v475 then
+					state = 106
+				else
+					state = 105
+				end
+			elseif state == 105 then
+				state = 101
+			end
+		elseif state <= 108 then
+			if state == 106 then
+				do
+					local v551, v552, v553 = ipairs(v475:GetChildren())
+					local v554 = geniter(v551, v552, v553)
+					local v555 = table.pack(v554())
+				end
+
+				if t255_146_1[1] then
+					state = 107
+				else
+					state = 148
+				end
+			elseif state == 107 then
+				v476 = t255_146_1[3]
+				state = 108
+			elseif state == 108 then
+				if v476:IsA("Tool") then
+					state = 120
+				else
+					state = 109
+				end
+			end
+		elseif state <= 111 then
+			if state == 109 then
+				forIter12, forState12, forControl12 = v477, v478, v479
+
+				if type(forIter12) == 'table' then
+					local forMeta12 = getmetatable(forIter12)
+
+					if type(forMeta12) == 'table' and forMeta12['__iter'] then
+						forIter12, forState12, forControl12 = (forMeta12['__iter'](forIter12))
+					else
+						forIter12, forState12, forControl12 = next, forIter12, nil
+					end
+				end
+
+				state = 110
+			elseif state == 110 then
+				local v557
+
+				v557, v476 = (forIter12(forState12, forControl12))
+
+				if v557 == nil then
+					state = 111
+				else
+					forControl12 = v557
+					state = 108
+				end
+			elseif state == 111 then
+				local v558 = table.pack(v471())
+
+				if v558[1] then
+					state = 112
+				else
+					state = 114
+				end
+			end
+		elseif state <= 114 then
+			if state == 112 then
+				v483 = t275_316_1[3]
+
+				if v483 then
+					state = 113
+				else
+					state = 111
+				end
+			elseif state == 113 then
+				v477, v478, v479 = ipairs(v483:GetChildren())
+				state = 110
+			elseif state == 114 then
+				if v397 and v444 ~= 0 then
+					state = 116
+				else
+					state = 115
+				end
+			end
+		elseif state <= 117 then
+			if state == 115 then
+				return nil
+			end
+
+			if state == 116 then
+				v484 = v444
+				v431 = nil
+				v485, v486, v487 = ipairs(Plants:GetChildren())
+				v488 = geniter(v485, v486, v487)
+				state = 117
+			elseif state == 117 then
+				forIter13, forState13, forControl13 = v485, v486, v487
+
+				if type(forIter13) == 'table' then
+					local forMeta13 = getmetatable(forIter13)
+
+					if type(forMeta13) == 'table' and forMeta13['__iter'] then
+						forIter13, forState13, forControl13 = (forMeta13['__iter'](forIter13))
+					else
+						forIter13, forState13, forControl13 = next, forIter13, nil
+					end
+				end
+
+				state = 118
+			end
+		elseif state <= 120 then
+			if state == 118 then
+				local v560
+
+				v560, v492 = (forIter13(forState13, forControl13))
+
+				if v560 == nil then
+					state = 119
+				else
+					forControl13 = v560
+					state = 134
+				end
+			elseif state == 119 then
+				return nil
+			elseif state == 120 then
+				if v476:GetAttribute("Shovel") and not v397 then
+					state = 121
+				else
+					state = 122
+				end
+			end
+		elseif state <= 123 then
+			if state == 121 then
+				v397 = v476
+				state = 122
+			elseif state == 122 then
+				forIter14, forState14, forControl14 = v493, v494, v495
+
+				if type(forIter14) == 'table' then
+					local forMeta14 = getmetatable(forIter14)
+
+					if type(forMeta14) == 'table' and forMeta14['__iter'] then
+						forIter14, forState14, forControl14 = (forMeta14['__iter'](forIter14))
+					else
+						forIter14, forState14, forControl14 = next, forIter14, nil
+					end
+				end
+
+				state = 123
+			elseif state == 123 then
+				local v562
+
+				v562, v476 = (forIter14(forState14, forControl14))
+
+				if v562 == nil then
+					state = 124
+				else
+					forControl14 = v562
+					state = 108
+				end
+			end
+		elseif state <= 126 then
+			if state == 124 then
+				local v563 = table.pack(v471())
+
+				if v563[1] then
+					state = 125
+				else
+					state = 127
+				end
+			elseif state == 125 then
+				v499 = t275_172_1[3]
+
+				if v499 then
+					state = 126
+				else
+					state = 124
+				end
+			elseif state == 126 then
+				v493, v494, v495 = ipairs(v499:GetChildren())
+				state = 123
+			end
+		elseif state <= 129 then
+			if state == 127 then
+				if v397 and v444 ~= 0 then
+					state = 129
+				else
+					state = 128
+				end
+			elseif state == 128 then
+				return nil
+			elseif state == 129 then
+				v484 = v444
+				v431 = nil
+				v500, v501, v502 = ipairs(Plants:GetChildren())
+				v488 = geniter(v500, v501, v502)
+				state = 130
+			end
+		elseif state <= 132 then
+			if state == 130 then
+				forIter15, forState15, forControl15 = v500, v501, v502
+
+				if type(forIter15) == 'table' then
+					local forMeta15 = getmetatable(forIter15)
+
+					if type(forMeta15) == 'table' and forMeta15['__iter'] then
+						forIter15, forState15, forControl15 = (forMeta15['__iter'](forIter15))
+					else
+						forIter15, forState15, forControl15 = next, forIter15, nil
+					end
+				end
+
+				state = 131
+			elseif state == 131 then
+				local v565
+
+				v565, v492 = (forIter15(forState15, forControl15))
+
+				if v565 == nil then
+					state = 132
+				else
+					forControl15 = v565
+					state = 134
+				end
+			elseif state == 132 then
+				state = 133
+			end
+		elseif state <= 135 then
+			if state == 133 then
+				return nil
+			end
+
+			if state == 134 then
+				attribute3 = v492:GetAttribute("SeedName")
+				attribute4 = v492:GetAttribute("PlantId")
+
+				if attribute3 and attribute4 then
+					state = 137
+				else
+					state = 135
+				end
+			elseif state == 135 then
+				local v566 = table.pack(v488())
+
+				if v566[1] then
+					state = 136
+				else
+					state = 145
+				end
+			end
+		elseif state <= 138 then
+			if state == 136 then
+				v492 = t253_283_1[3]
+				state = 134
+			elseif state == 137 then
+				if table.find(getgenv().IgnoredPlantShovel, attribute4) then
+					state = 143
+				else
+					state = 138
+				end
+			elseif state == 138 then
+				v508 = SellValueData[attribute3]
+
+				if v508 then
+					state = 141
+				else
+					state = 139
+				end
+			end
+		elseif state <= 141 then
+			if state == 139 then
+				local v567 = table.pack(v488())
+
+				if v567[1] then
+					state = 140
+				else
+					state = 145
+				end
+			elseif state == 140 then
+				v492 = t253_272_1[3]
+				state = 134
+			elseif state == 141 then
+				if v508 > 0 and v508 < v484 and (not v431 or v508 < v431.sell) then
+					state = 142
+				else
+					state = 143
+				end
+			end
+		elseif state <= 144 then
+			if state == 142 then
+				v431 = {
+					id = attribute4,
+					model = v492,
+					sell = v508
+				}
+				state = 143
+			elseif state == 143 then
+				local v568 = table.pack(v488())
+
+				if v568[1] then
+					state = 144
+				else
+					state = 145
+				end
+			elseif state == 144 then
+				v492 = t253_228_1[3]
+				state = 134
+			end
+		elseif state <= 147 then
+			if state == 145 then
+				if v431 then
+					state = 147
+				else
+					state = 146
+				end
+			elseif state == 146 then
+				return nil
+			elseif state == 147 then
+				return v397, v431.id, v431.model
+			end
+		elseif state == 148 then
+			state = 101
+		end
+	end
+end
+local function v569(p58, p59)
+	if p58 then
+		if p59 then
+			if not v215(p58) then
+				return false
+			end
+
+			local attribute = p58:GetAttribute("Shovel") or "Shovel"
+
+			if not getgenv().IgnoredPlantShovel then
+				getgenv().IgnoredPlantShovel = {}
+			end
+
+			Networking.Shovel.UseShovel:Fire(p59, "", attribute, p58)
+			table.insert(getgenv().IgnoredPlantShovel, p59)
+
+			return
+		end
+	end
+
+	return false
+end
+local function v571()
+	local v572 = v170()
+
+	for k, v in pairs(t20) do
+		if not (v572 < (v.PurchasePrice or math.huge)) and k ~= "Green Bean" then
+			if Config["Buy Seed"] then
+				if v572 >= 1000 and not Config["Buy Seed"].Seed[k] then
+					continue
+				end
+			elseif v572 >= 1000 and Config["Plant Seed"].Seed[k] == nil then
+				continue
+			end
+
+			if v219("SeedShop", k) then
+				Networking.SeedShop.PurchaseSeed:Fire(k)
+			end
+		end
+	end
+end
+local function v575()
+	local buyGear = Config["Buy Gear"]
+
+	if buyGear then
+		if buyGear.Enable then
+			local Gear = buyGear.Gear or {}
+
+			if not t16 then
+				t16 = {}
+				pcall(function()
+					for _, v in ipairs(require(ReplicatedStorage.SharedModules.GearShopData).Data) do
+						t16[v.ItemName] = v.Cost
+					end
+				end)
+			end
+
+			for k, v in pairs(Gear) do
+				if v == true then
+					local v582 = t16[k] or 0
+
+					if v219("GearShop", k) > 0 and v582 <= v170() then
+						pcall(function()
+							Networking.GearShop.PurchaseGear:Fire(k)
+						end)
+					end
+				end
+			end
+
+			return
+		end
+	end
+end
+local function v583()
+	if not Config["Buy Slot Pet"] then
+		return
+	end
+
+	local attribute = LocalPlayer:GetAttribute("MaxEquippedPets") or 3
+
+	if (PetSlotPrices.AbsoluteMax or 6) <= attribute then
+		return false
+	end
+
+	local v585 = (PetSlotPrices.Prices or {})[attribute - (PetSlotPrices.BaseMax or 3) + 1]
+
+	return v585 and v170() >= v585
+end
+local function v586()
+	if v583() then
+		Networking.Pets.RequestPurchasePetSlot:Fire()
+
+		return
+	end
+end
+
+local t34 = {
+	petsBought = 0,
+	seedsPlanted = 0,
+	fruitsHarvested = 0,
+	sellsCount = 0,
+	mailsSent = 0,
+	shovelsUsed = 0,
+	seedPacksCollected = 0,
+	seedsBought = 0,
+	lastAction = "Idle",
+	lastActionAt = os.clock(),
+	startTime = os.time()
+}
+
+local function v588(p60)
+	t34.lastAction = p60
+	t34.lastActionAt = os.clock()
+end
+
+local v589 = v235
+
+local function v590(p61)
+	local v591 = v589(p61)
+
+	if v591 then
+		t34.petsBought += 1
+
+		local attribute = p61 and p61:GetAttribute("PetName") or "?"
+
+		v588("Bought pet: " .. attribute)
+		pcall(v150, attribute)
+	end
+
+	return v591
+end
+
+local v593 = v286
+
+local function v594(p62, p63)
+	local v595 = v593(p62, p63)
+
+	if v595 then
+		t34.seedsPlanted += 1
+		v588("Planted: " .. tostring(p63))
+	end
+
+	return v595
+end
+
+local v596 = v313
+
+local function v597()
+	v596()
+	t34.sellsCount += 1
+	v588("Sold all fruits")
+end
+
+local v598 = v341
+
+local function v599(p64, p65)
+	local v600, v601 = v598(p64, p65)
+
+	if v600 then
+		t34.mailsSent += 1
+		v588(("Mailed %d items to UID %s"):format(#p65, tostring(p64)))
+	end
+
+	return v600, v601
+end
+
+local v602 = v569
+
+local function v603(p66, p67)
+	v602(p66, p67)
+	t34.shovelsUsed += 1
+	v588("Shoveled weak plant")
+end
+
+local v604 = v571
+
+local function v605()
+	local v606 = v169()
+	local v607, v608, v609, v610, v611, exitTo6, v613, v614, v615, v616
+
+	if v606 and v606.Data and v606.Data.Inventory and v606.Data.Inventory.Seeds then
+		local v617, v618, v619 = pairs(v606.Data.Inventory.Seeds)
+		local v620 = geniter(v617, v618, v619)
+		local exitTo
+		local v622
+
+		for _, v in v617, v618, v619 do
+			v622 = type(v) == "number" and v
+
+			if v622 then
+				exitTo = 1
+
+				break
+			end
+		end
+
+		local seedsBought, v626
+
+		if exitTo == 1 then
+			local v627 = 0 + v622
+			local exitTo2
+			local v629
+
+			while true do
+				local v630 = table.pack(v620())
+
+				if not v630[1] then
+					exitTo2 = 1
+
+					break
+				end
+
+				local v631 = v630[3]
+				local exitTo3
+
+				while true do
+					v629 = type(v631) == "number" and v631
+
+					if v629 then
+						exitTo3 = 1
+
+						break
+					end
+
+					v627 += 0
+
+					local v633 = table.pack(v620())
+
+					if v633[1] then
+						v631 = v633[3]
+
+						continue
+					end
+
+					break
+				end
+
+				if exitTo3 == 1 then
+					v627 += v629
+
+					continue
+				end
+
+				break
+			end
+
+			local v634, v635, v636, v637, exitTo4, v639, v640, v641, exitTo5, v643
+
+			if exitTo2 == 1 then
+				v604()
+
+				local v644 = v169()
+
+				if v644 and v644.Data and v644.Data.Inventory and v644.Data.Inventory.Seeds then
+					local pairs_ = pairs
+					local Inventory = v644.Data.Inventory
+
+					v634, v635, v636 = pairs_(Inventory.Seeds)
+					v637 = geniter(v634, v635, v636)
+					exitTo4 = nil
+
+					for _, v in v634, v635, v636 do
+						v639 = type(v) == "number" and v
+
+						if v639 then
+							exitTo4 = 1
+
+							break
+						end
+					end
+
+					if exitTo4 == 1 then
+						v640 = 0 + v639
+
+						while true do
+							local v649 = table.pack(v637())
+
+							if not v649[1] then
+								break
+							end
+
+							v641 = v649[3]
+							exitTo5 = nil
+
+							while true do
+								v643 = type(v641) == "number" and v641
+
+								if v643 then
+									exitTo5 = 1
+
+									break
+								end
+
+								v640 += 0
+
+								local v650 = table.pack(v637())
+
+								if v650[1] then
+									v641 = v650[3]
+
+									continue
+								end
+
+								break
+							end
+
+							if exitTo5 == 1 then
+								v640 += v643
+
+								continue
+							end
+
+							break
+						end
+
+						if v627 < v640 then
+							seedsBought = t34.seedsBought
+							v626 = v640 - v627
+							t34.seedsBought = seedsBought + v626
+						end
+					elseif v627 < 0 then
+						seedsBought = t34.seedsBought
+						v626 = 0 - v627
+						t34.seedsBought = seedsBought + v626
+
+						return
+					end
+				elseif v627 < 0 then
+					seedsBought = t34.seedsBought
+					v626 = 0 - v627
+					t34.seedsBought = seedsBought + v626
+
+					return
+				end
+			else
+				v604()
+
+				local v651 = v169()
+
+				if v651 and v651.Data and v651.Data.Inventory and v651.Data.Inventory.Seeds then
+					v634, v635, v636 = pairs(v651.Data.Inventory.Seeds)
+					v637 = geniter(v634, v635, v636)
+					exitTo4 = nil
+
+					for _, v in v634, v635, v636 do
+						v639 = type(v) == "number" and v
+
+						if v639 then
+							exitTo4 = 1
+
+							break
+						end
+					end
+
+					if exitTo4 == 1 then
+						v640 = 0 + v639
+
+						while true do
+							local v654 = table.pack(v637())
+
+							if not v654[1] then
+								break
+							end
+
+							v641 = v654[3]
+							exitTo5 = nil
+
+							while true do
+								v643 = type(v641) == "number" and v641
+
+								if v643 then
+									exitTo5 = 1
+
+									break
+								end
+
+								v640 += 0
+
+								local v655 = table.pack(v637())
+
+								if v655[1] then
+									v641 = v655[3]
+
+									continue
+								end
+
+								break
+							end
+
+							if exitTo5 == 1 then
+								v640 += v643
+
+								continue
+							end
+
+							break
+						end
+
+						if v627 < v640 then
+							seedsBought = t34.seedsBought
+							v626 = v640 - v627
+							t34.seedsBought = seedsBought + v626
+
+							return
+						end
+					elseif v627 < 0 then
+						seedsBought = t34.seedsBought
+						v626 = 0 - v627
+						t34.seedsBought = seedsBought + v626
+
+						return
+					end
+				elseif v627 < 0 then
+					seedsBought = t34.seedsBought
+					v626 = 0 - v627
+					t34.seedsBought = seedsBought + v626
+
+					return
+				end
+			end
+		else
+			v604()
+			v607 = v169()
+
+			if v607 and v607.Data and v607.Data.Inventory and v607.Data.Inventory.Seeds then
+				v608, v609, v610 = pairs(v607.Data.Inventory.Seeds)
+				v611 = geniter(v608, v609, v610)
+				exitTo6 = nil
+
+				for _, v in v608, v609, v610 do
+					v613 = type(v) == "number" and v
+
+					if v613 then
+						exitTo6 = 1
+
+						break
+					end
+				end
+
+				if exitTo6 == 1 then
+					v614 = 0 + v613
+
+					while true do
+						local v658 = table.pack(v611())
+
+						if not v658[1] then
+							break
+						end
+
+						v615 = v658[3]
+						v616 = type(v615) == "number" and v615
+
+						if v616 then
+							v614 += v616
+						else
+							v614 += 0
+						end
+					end
+
+					if v614 > 0 then
+						seedsBought = t34.seedsBought
+						v626 = v614 - 0
+						t34.seedsBought = seedsBought + v626
+
+						return
+					end
+				end
+			end
+		end
+	else
+		v604()
+		v607 = v169()
+
+		if v607 and v607.Data and v607.Data.Inventory and v607.Data.Inventory.Seeds then
+			v608, v609, v610 = pairs(v607.Data.Inventory.Seeds)
+			v611 = geniter(v608, v609, v610)
+			exitTo6 = nil
+
+			for _, v in v608, v609, v610 do
+				v613 = type(v) == "number" and v
+
+				if v613 then
+					exitTo6 = 1
+
+					break
+				end
+			end
+
+			if exitTo6 == 1 then
+				v614 = 0 + v613
+
+				while true do
+					local v661 = table.pack(v611())
+
+					if not v661[1] then
+						break
+					end
+
+					v615 = v661[3]
+					v616 = type(v615) == "number" and v615
+
+					if v616 then
+						v614 += v616
+					else
+						v614 += 0
+					end
+				end
+
+				if v614 > 0 then
+					t34.seedsBought += v614 - 0
+
+					return
+				end
+			end
+		end
+	end
+end
+local function v662()
+	local v663 = v169()
+	local OwnedExpansions = v663 and v663.Data and v663.Data.OwnedExpansions or 0
+
+	for _, ExpansionPrice in ipairs(ExpansionPrices) do
+		if ExpansionPrice.Expansion == OwnedExpansions + 1 then
+			if ExpansionPrice.Price then
+				if ExpansionPrice.Price < 1000000 and ExpansionPrice.Price <= v170() then
+					return ExpansionPrice
+				end
+			end
+
+			return nil
+		end
+	end
+
+	return nil
+end
+local function v667()
+	if v170() < 50000 then
+		return
+	end
+
+	if Config["Buy Expand Plot"] == false then
+		return
+	end
+
+	if v662() then
+		pcall(function()
+			Networking.Actions.ExpandGarden:Fire()
+		end)
+
+		return
+	end
+end
+
+getgenv().OneClickToggles = getgenv().OneClickToggles or {}
+
+local OneClickToggles = getgenv().OneClickToggles
+
+if OneClickToggles.Render3D == nil then
+	OneClickToggles.Render3D = false
+end
+
+if OneClickToggles.BlackScreen == nil then
+	OneClickToggles.BlackScreen = true
+end
+
+local function v669(p68)
+	if getgenv().OneClickSetRender3D then
+		getgenv().OneClickSetRender3D(p68)
+	else
+		OneClickToggles.Render3D = p68 and true or false
+	end
+end
+local function v670(p69)
+	if getgenv().OneClickSetBlackScreen then
+		getgenv().OneClickSetBlackScreen(p69)
+	else
+		OneClickToggles.BlackScreen = p69 and true or false
+	end
+end
+local function v671()
+	local OneClickGAG2_StatusUI = LocalPlayer:FindFirstChild("PlayerGui") and LocalPlayer.PlayerGui:FindFirstChild("OneClickGAG2_StatusUI")
+
+	if OneClickGAG2_StatusUI then
+		OneClickGAG2_StatusUI:Destroy()
+	end
+
+	local ScreenGui = Instance.new("ScreenGui")
+
+	ScreenGui.Name = "OneClickGAG2_StatusUI"
+	ScreenGui.ResetOnSpawn = false
+	ScreenGui.IgnoreGuiInset = true
+	ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+	ScreenGui.DisplayOrder = 100
+	ScreenGui.Parent = gethui and gethui() or LocalPlayer:WaitForChild("PlayerGui")
+
+	local Frame = Instance.new("Frame")
+
+	Frame.Name = "Main"
+	Frame.AnchorPoint = Vector2.new(0.5, 0.5)
+	Frame.Size = UDim2.new(0, 500, 0, 520)
+	Frame.Position = UDim2.new(0.5, 0, 0.5, 0)
+	Frame.BackgroundColor3 = Color3.fromRGB(15, 17, 22)
+	Frame.BackgroundTransparency = 0.02
+	Frame.BorderSizePixel = 0
+	Frame.Active = true
+	Frame.Draggable = true
+	Frame.Parent = ScreenGui
+	Instance.new("UICorner", Frame).CornerRadius = UDim.new(0, 10)
+
+	local UIStroke = Instance.new("UIStroke", Frame)
+
+	UIStroke.Color = Color3.fromRGB(80, 200, 120)
+	UIStroke.Thickness = 2
+	UIStroke.Transparency = 0.3
+
+	local TextLabel = Instance.new("TextLabel")
+
+	TextLabel.Size = UDim2.new(1, 0, 0, 36)
+	TextLabel.BackgroundColor3 = Color3.fromRGB(30, 75, 50)
+	TextLabel.BorderSizePixel = 0
+	TextLabel.Text = "  OneClick GAG2  |  discord.gg/chuoihub"
+	TextLabel.TextColor3 = Color3.fromRGB(220, 255, 220)
+	TextLabel.Font = Enum.Font.GothamBold
+	TextLabel.TextSize = 16
+	TextLabel.TextXAlignment = Enum.TextXAlignment.Left
+	TextLabel.Parent = Frame
+	Instance.new("UICorner", TextLabel).CornerRadius = UDim.new(0, 10)
+
+	local TextButton = Instance.new("TextButton")
+
+	TextButton.Size = UDim2.new(0, 36, 0, 36)
+	TextButton.Position = UDim2.new(1, -36, 0, 0)
+	TextButton.BackgroundTransparency = 1
+	TextButton.Text = "_"
+	TextButton.TextColor3 = Color3.fromRGB(220, 255, 220)
+	TextButton.Font = Enum.Font.GothamBold
+	TextButton.TextSize = 22
+	TextButton.Parent = TextLabel
+
+	local function createTextButton(p70, p71, p72, p73)
+		local TextButton2 = Instance.new("TextButton")
+
+		TextButton2.Size = UDim2.new(0, 64, 0, 28)
+		TextButton2.Position = UDim2.new(1, p73, 0, 4)
+		TextButton2.AnchorPoint = Vector2.new(0, 0)
+
+		local v680
+
+		if p70 then
+			local color3 = Color3.fromRGB(60, 130, 80)
+
+			if color3 then
+				TextButton2.BackgroundColor3 = color3
+				TextButton2.BorderSizePixel = 0
+				v680 = p70 and p71 or p72
+			else
+				local color32 = Color3.fromRGB
+
+				TextButton2.BackgroundColor3 = color32(120, 50, 50)
+				TextButton2.BorderSizePixel = 0
+				v680 = p70 and p71 or p72
+			end
+		else
+			TextButton2.BackgroundColor3 = Color3.fromRGB(120, 50, 50)
+			TextButton2.BorderSizePixel = 0
+			v680 = p70 and p71 or p72
+		end
+
+		TextButton2.Text = v680
+		TextButton2.TextColor3 = Color3.fromRGB(240, 240, 240)
+		TextButton2.Font = Enum.Font.GothamBold
+		TextButton2.TextSize = 13
+		TextButton2.Parent = TextLabel
+		Instance.new("UICorner", TextButton2).CornerRadius = UDim.new(0, 6)
+
+		return TextButton2
+	end
+
+	local v683 = createTextButton(OneClickToggles.Render3D, "3D ON", "3D OFF", -106)
+	local bgOn = createTextButton(OneClickToggles.BlackScreen, "BG ON", "BG OFF", -176)
+
+	v683.MouseButton1Click:Connect(function()
+		local v685 = not OneClickToggles.Render3D
+
+		v669(v685)
+
+		if v685 then
+			v683.Text = "3D ON"
+		else
+			v683.Text = "3D OFF"
+		end
+
+		local color3
+
+		if v685 then
+			color3 = Color3.fromRGB(60, 130, 80) or Color3.fromRGB(120, 50, 50)
+		else
+			color3 = Color3.fromRGB(120, 50, 50)
+			v683.BackgroundColor3 = color3
+
+			return
+		end
+
+		v683.BackgroundColor3 = color3
+	end)
+
+	local function v687()
+		local v688 = not OneClickToggles.BlackScreen
+
+		v670(v688)
+		bgOn.Text = v688 and "BG ON" or "BG OFF"
+		bgOn.BackgroundColor3 = v688 and Color3.fromRGB(60, 130, 80) or Color3.fromRGB(120, 50, 50)
+	end
+
+	bgOn.MouseButton1Click:Connect(v687)
+
+	local ScrollingFrame = Instance.new("ScrollingFrame")
+
+	ScrollingFrame.Name = "Body"
+	ScrollingFrame.Size = UDim2.new(1, -16, 1, -44)
+	ScrollingFrame.Position = UDim2.new(0, 8, 0, 40)
+	ScrollingFrame.BackgroundTransparency = 1
+	ScrollingFrame.BorderSizePixel = 0
+	ScrollingFrame.ScrollBarThickness = 3
+	ScrollingFrame.ScrollBarImageColor3 = Color3.fromRGB(80, 200, 120)
+	ScrollingFrame.CanvasSize = UDim2.new(0, 0, 0, 0)
+	ScrollingFrame.AutomaticCanvasSize = Enum.AutomaticSize.Y
+	ScrollingFrame.Parent = Frame
+
+	local UIListLayout = Instance.new("UIListLayout", ScrollingFrame)
+
+	UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+	UIListLayout.Padding = UDim.new(0, 2)
+
+	local t35 = {}
+
+	local function v692(p74, p75)
+		local TextLabel2 = Instance.new("TextLabel")
+
+		TextLabel2.Name = p74
+		TextLabel2.LayoutOrder = p75
+		TextLabel2.Size = UDim2.new(1, 0, 0, 20)
+		TextLabel2.BackgroundTransparency = 1
+		TextLabel2.Text = p74 .. ": ..."
+		TextLabel2.TextColor3 = Color3.fromRGB(210, 210, 210)
+		TextLabel2.Font = Enum.Font.Code
+		TextLabel2.TextSize = 15
+		TextLabel2.TextXAlignment = Enum.TextXAlignment.Left
+		TextLabel2.TextTruncate = Enum.TextTruncate.AtEnd
+		TextLabel2.Parent = ScrollingFrame
+		t35[p74] = TextLabel2
+	end
+	local function v694(p76, p77)
+		local TextLabel2 = Instance.new("TextLabel")
+
+		TextLabel2.LayoutOrder = p77
+		TextLabel2.Size = UDim2.new(1, 0, 0, 24)
+		TextLabel2.BackgroundTransparency = 1
+		TextLabel2.Text = "─── " .. p76 .. " ───"
+		TextLabel2.TextColor3 = Color3.fromRGB(100, 210, 140)
+		TextLabel2.Font = Enum.Font.GothamBold
+		TextLabel2.TextSize = 14
+		TextLabel2.TextXAlignment = Enum.TextXAlignment.Left
+		TextLabel2.Parent = ScrollingFrame
+	end
+
+	v694("PLAYER", 1)
+	v692("Sheckles", 2)
+	v692("Fruit", 3)
+	v692("Pets", 4)
+	v692("Seeds Bag", 5)
+	v692("Plot", 6)
+	v694("GARDEN", 10)
+	v692("Plants", 11)
+	v692("Sprinklers", 12)
+	v692("Decaying", 13)
+	v694("SESSION", 20)
+	v692("Uptime", 21)
+	v692("Earned", 22)
+	v692("Rate", 23)
+	v692("Harvested", 24)
+	v692("Planted", 25)
+	v692("Sold", 26)
+	v692("Mails", 27)
+	v692("Pets Bought", 28)
+	v692("Seed Packs", 29)
+	v692("Shovels", 30)
+	v694("STATUS", 40)
+	v692("Last", 41)
+
+	local u696 = false
+
+	TextButton.MouseButton1Click:Connect(function()
+		u696 = not u696
+		ScrollingFrame.Visible = not u696
+
+		if u696 then
+			Frame.Size = UDim2.new(0, 500, 0, 36)
+			TextButton.Text = "+"
+		else
+			Frame.Size = UDim2.new(0, 500, 0, 520)
+			TextButton.Text = "_"
+		end
+	end)
+
+	return t35
+end
+local function v697(p78)
+	if not p78 then
+		return "0"
+	end
+
+	local v698 = math.floor(p78)
+
+	if v698 >= 1e9 then
+		return string.format("%.2fB", v698 / 1e9)
+	end
+
+	if v698 >= 1000000 then
+		return string.format("%.2fM", v698 / 1000000)
+	end
+
+	if v698 >= 1000 then
+		return string.format("%.1fK", v698 / 1000)
+	end
+
+	return tostring(v698)
+end
+local function v699(p79)
+	local v700 = math.floor(p79)
+
+	return string.format("%02d:%02d:%02d", math.floor(v700 / 3600), math.floor(v700 % 3600 / 60), v700 % 60)
+end
+
+local v701 = v671()
+local v702 = v170()
+
+local function v703()
+	local u704
+
+	while task.wait(1) do
+		pcall(function()
+			local v705 = v169()
+			local Sheckles = v705 and v705.Data and v705.Data.Sheckles or 0
+			local attribute = LocalPlayer:GetAttribute("FruitCount") or 0
+			local attribute2 = LocalPlayer:GetAttribute("MaxFruitCapacity") or 100
+			local attribute3 = LocalPlayer:GetAttribute("MaxEquippedPets") or 3
+			local attribute4 = LocalPlayer:GetAttribute("PlotId") or "?"
+
+			if u704 and u704 < attribute then
+				t34.fruitsHarvested += attribute - u704
+				v588("Harvested " .. attribute - u704)
+			end
+
+			u704 = attribute
+
+			local n10 = 0
+
+			pcall(function()
+				n10 = #(Networking.Pets.GetEquippedPets:Fire() or {})
+			end)
+
+			local v712 = v174()
+			local n11 = 0
+			local decaying = 0
+
+			if v712 and v712:FindFirstChild("Plants") then
+				for _, child in ipairs(v712.Plants:GetChildren()) do
+					n11 += 1
+
+					if child:GetAttribute("Decaying") == true then
+						decaying += 1
+					end
+				end
+			end
+
+			local n12 = 0
+			local t36 = {}
+
+			if v705 and v705.Data and v705.Data.Inventory and v705.Data.Inventory.Seeds then
+				for k, seed in pairs(v705.Data.Inventory.Seeds) do
+					local v721 = type(seed) == "number" and seed or 1
+
+					if v721 > 0 then
+						n12 += v721
+						table.insert(t36, {
+							name = k,
+							count = v721
+						})
+					end
+				end
+			end
+
+			table.sort(t36, function(p80, p81)
+				return p80.count > p81.count
+			end)
+			v701["Seeds Bag"].Text = "Seeds: " .. n12 .. " total"
+
+			if not v701._seedRows then
+				v701._seedRows = {}
+			end
+
+			local Parent = v701["Seeds Bag"].Parent
+
+			for i, v in ipairs(t36) do
+				if not v701._seedRows[i] then
+					local TextLabel = Instance.new("TextLabel")
+
+					TextLabel.Size = UDim2.new(1, 0, 0, 18)
+					TextLabel.BackgroundTransparency = 1
+					TextLabel.TextColor3 = Color3.fromRGB(180, 180, 180)
+					TextLabel.Font = Enum.Font.Code
+					TextLabel.TextSize = 14
+					TextLabel.TextXAlignment = Enum.TextXAlignment.Left
+					TextLabel.Parent = Parent
+					v701._seedRows[i] = TextLabel
+				end
+
+				v701._seedRows[i].LayoutOrder = 5 + i * 0.01
+				v701._seedRows[i].Text = "  • " .. v.name .. ": " .. v.count
+				v701._seedRows[i].Visible = true
+			end
+
+			for i = #t36 + 1, #v701._seedRows do
+				v701._seedRows[i].Visible = false
+			end
+
+			local sprinklers = 0
+
+			if v712 then
+				local Sprinklers = v712:FindFirstChild("Sprinklers")
+
+				if Sprinklers then
+					sprinklers = #Sprinklers:GetChildren()
+				end
+			end
+
+			local OwnedExpansions = v705 and v705.Data and v705.Data.OwnedExpansions or 0
+			local v730 = math.max(0, Sheckles - v702)
+			local v731 = os.time() - t34.startTime
+			local v732 = v731 > 0 and v730 / v731 or 0
+
+			v701.Sheckles.Text = "Sheckles: $" .. v697(Sheckles)
+			v701.Fruit.Text = "Fruit: " .. attribute .. " / " .. attribute2
+			v701.Pets.Text = "Pets: " .. n10 .. " / " .. attribute3
+			v701.Plot.Text = "Plot: " .. tostring(attribute4) .. "  (Exp " .. OwnedExpansions .. ")"
+			v701.Plants.Text = "Plants: " .. n11 .. " / " .. (Config["Max Plant Fruit"] or 200)
+			v701.Sprinklers.Text = "Sprinklers: " .. sprinklers
+			v701.Decaying.Text = "Decaying: " .. decaying
+			v701.Uptime.Text = "Uptime: " .. v699(v731)
+			v701.Earned.Text = "Earned: $" .. v697(v730)
+			v701.Rate.Text = "Rate: $" .. v697(v732) .. "/s"
+			v701.Harvested.Text = "Harvested: " .. t34.fruitsHarvested
+			v701.Planted.Text = "Planted: " .. t34.seedsPlanted
+			v701.Sold.Text = "Sold: " .. t34.sellsCount .. " times"
+			v701.Mails.Text = "Mails: " .. t34.mailsSent
+			v701["Pets Bought"].Text = "Pets Bought: " .. t34.petsBought
+			v701["Seed Packs"].Text = "Seed Packs: " .. t34.seedPacksCollected
+			v701.Shovels.Text = "Shovels: " .. t34.shovelsUsed
+			v701.Last.Text = "Last: " .. t34.lastAction .. string.format(" (%.0fs ago)", os.clock() - t34.lastActionAt)
+		end)
+	end
+end
+
+task.spawn(v703)
+task.spawn(function()
+	while task.wait() do
+		local _ = pcall(function()
+			local v735, v736 = DetectCollectEvent()
+
+			if v735 then
+				v203(v735.CFrame)
+				fireproximityprompt(v736)
+				v588("Collected seed pack")
+
+				if LocalPlayer:DistanceFromCharacter(v735.Position) <= 15 then
+					t34.seedPacksCollected += 1
+
+					local v737 = v735
+					local attribute = v737:GetAttribute("Id") or v737.Name
+
+					if v737:GetAttribute("RainbowSeed") == true then
+						v157("Rainbow", attribute)
+					elseif v737:GetAttribute("GoldSeed") == true then
+						v157("Gold", attribute)
+					end
+				end
+			end
+		end)
+	end
+end)
+task.spawn(function()
+	while task.wait() do
+		local _, result = pcall(function()
+			local v741 = DetectCollectEvent()
+
+			if v741 then
+				return
+			end
+
+			if getgenv().MeteorBusy then
+				return
+			end
+
+			v667()
+			v586()
+
+			local v743, v744 = v337()
+
+			if v743 and v744 then
+				v599(v743, v744)
+			end
+
+			v605()
+			v575()
+			pcall(v242)
+
+			if v308() then
+				v597()
+			end
+
+			local v745 = v226()
+
+			if v745 then
+				v590(v745)
+
+				return
+			end
+
+			v176()
+
+			local v746, v747 = v272()
+
+			if v746 then
+				local v748, v749, v750 = v348(v747)
+
+				if v748 and v749 and v750 then
+					v603(v748, v749)
+				else
+					v594(v746, v747)
+				end
+			end
+
+			if v170() < 1000 then
+				local v751, v752 = v272(true)
+
+				if v751 then
+					v594(v751, v752)
+				end
+			end
+
+			v213()
+			getgenv().CollectHarvest = true
+		end)
+
+		if result then
+			print(result)
+		end
+	end
+end)
+print("[OneClick GAG2] Loaded. Edit getgenv().Config to customize.")
+task.spawn(function()
+	while task.wait() do
+		local ok, result = pcall(function()
+			local v755 = v174()
+
+			if not v755 then
+				return
+			end
+
+			if not getgenv().CollectHarvest then
+				return
+			end
+
+			local attribute = LocalPlayer:GetAttribute("FruitCount") or 0
+			local attribute2 = LocalPlayer:GetAttribute("MaxFruitCapacity") or 100
+
+			if attribute2 <= attribute then
+				return
+			end
+
+			local t37 = {}
+			local n13 = 0
+			local n14 = 0
+			local n15 = 0
+			local n16 = 0
+			local v763
+
+			for _, v in ipairs(CollectionService:GetTagged("HarvestPrompt")) do
+				n13 += 1
+
+				if v:IsA("ProximityPrompt") and v.Enabled and v:GetAttribute("Collected") ~= true and v:IsDescendantOf(v755) then
+					n14 += 1
+
+					local Parent = v.Parent
+
+					while Parent and Parent ~= workspace and (not Parent:IsA("Model") or not Parent:GetAttribute("PlantId")) do
+						Parent = Parent.Parent
+					end
+
+					if Parent and Parent ~= workspace then
+						n15 += 1
+
+						local attribute3 = Parent:GetAttribute("PlantId")
+						local attribute4 = Parent:GetAttribute("FruitId") or ""
+
+						if attribute3 then
+							n16 += 1
+							table.insert(t37, {
+								p = attribute3,
+								f = attribute4
+							})
+						end
+					elseif not v763 then
+						local t38 = {}
+						local Parent2 = v
+
+						for i = 1, 8 do
+							if not Parent2 or Parent2 == workspace then
+								break
+							end
+
+							local s8 = ""
+
+							if Parent2:IsA("Model") then
+								local attribute3 = Parent2:GetAttribute("PlantId")
+								local attribute4 = Parent2:GetAttribute("FruitId")
+								local attribute5 = Parent2:GetAttribute("SeedName")
+
+								s8 = string.format(" {Plant=%s Fruit=%s Seed=%s}", tostring(attribute3), tostring(attribute4), tostring(attribute5))
+							end
+
+							table.insert(t38, Parent2.ClassName .. ":" .. Parent2.Name .. s8)
+							Parent2 = Parent2.Parent
+						end
+
+						v763 = table.concat(t38, " -> ")
+					end
+				end
+			end
+
+			if #t37 == 0 then
+				return
+			end
+
+			table.sort(t37, function(p82, p83)
+				return (p82.sell or 0) > (p83.sell or 0)
+			end)
+
+			local v776 = attribute
+			local n17 = 0
+
+			for _, v in ipairs(t37) do
+				if attribute2 <= (LocalPlayer:GetAttribute("FruitCount") or 0) then
+					break
+				end
+
+				Networking.Garden.CollectFruit:Fire(v.p, v.f)
+				n17 += 1
+				task.wait(0.025)
+			end
+
+			local attribute3 = LocalPlayer:GetAttribute("FruitCount") or 0
+
+			if v776 < attribute3 then
+				t34.fruitsHarvested += attribute3 - v776
+				v588("Harvested " .. attribute3 - v776)
+			end
+
+			if n17 > 0 then
+				getgenv().CollectHarvest = false
+			end
+
+			task.wait(0.3)
+		end)
+
+		if not ok then
+			warn("[Harvest]", result)
+		end
+	end
+end)
+task.spawn(function()
+	Networking.Tutorial.Ready:Fire()
+end)
+task.spawn(function()
+	local UserInputService = game:GetService("UserInputService")
+	local t39 = {
+		UserInputType = Enum.UserInputType.MouseButton1,
+		UserInputState = Enum.UserInputState.Begin,
+		KeyCode = Enum.KeyCode.Unknown,
+		Position = Vector3.new(0, 0, 0),
+		Delta = Vector3.new(0, 0, 0)
+	}
+
+	local function v783()
+		if getconnections then
+			for _, v in ipairs(getconnections(UserInputService.InputBegan)) do
+				pcall(function()
+					v:Fire(t39, false)
+				end)
+				pcall(function()
+					v.Function(t39, false)
+				end)
+			end
+		end
+
+		if firesignal then
+			pcall(firesignal, UserInputService.InputBegan, t39, false)
+		end
+
+		local VirtualInputManager = game:GetService("VirtualInputManager")
+
+		pcall(function()
+			VirtualInputManager:SendMouseButtonEvent(0, 0, 0, true, game, 0)
+			VirtualInputManager:SendMouseButtonEvent(0, 0, 0, false, game, 0)
+		end)
+	end
+
+	while LocalPlayer:GetAttribute("LoadingScreenDone") ~= true do
+		print("[SkipLoading] Active=", LocalPlayer:GetAttribute("LoadingScreenActive"), " Done=", LocalPlayer:GetAttribute("LoadingScreenDone"), " trying fire")
+		v783()
+		task.wait(0.3)
+	end
+
+	print("[SkipLoading] LoadingScreenDone = true, exit")
+end)
+task.spawn(function()
+	local VirtualInputManager = game:GetService("VirtualInputManager")
+
+	while task.wait(60) do
+		pcall(function()
+			VirtualInputManager:SendKeyEvent(true, Enum.KeyCode.LeftShift, false, game)
+			VirtualInputManager:SendKeyEvent(false, Enum.KeyCode.LeftShift, false, game)
+		end)
+	end
+end)
+task.spawn(function()
+	local t40 = {}
+
+	local function v789(p84)
+		for i = 1, 4 do
+			pcall(function()
+				Networking.SeedPack.ClickPack:Fire(p84)
+			end)
+
+			if i < 4 then
+				task.wait(0.03)
+			end
+		end
+	end
+	local function v791(p85)
+		for _, descendant in ipairs(p85:GetDescendants()) do
+			if descendant:IsA("ProximityPrompt") and descendant.Enabled then
+				pcall(function()
+					descendant.MaxActivationDistance = 1000000
+					fireproximityprompt(descendant)
+				end)
+			end
+		end
+	end
+	local function v794(p86)
+		if t40[p86] then
+			return
+		end
+
+		local attribute = p86:GetAttribute("Id")
+
+		if not attribute or attribute == "" then
+			attribute = p86.Name
+		end
+
+		if not attribute or attribute == "" then
+			return
+		end
+
+		t40[p86] = true
+		v789(attribute)
+
+		local v796 = p86:GetAttribute("RainbowSeed") == true
+		local v797 = p86:GetAttribute("GoldSeed") == true
+
+		if v796 then
+			pcall(v157, "Rainbow", attribute)
+		elseif v797 then
+			pcall(v157, "Gold", attribute)
+		end
+
+		t34.seedPacksCollected += 1
+		v588((v796 and "Rainbow seed!" or v797 and "Gold seed!" or "Seed pack: ") .. tostring(attribute))
+		task.spawn(function()
+			if not p86.Parent then
+				return
+			end
+
+			v203(p86.Position + Vector3.new(0, 4, 0))
+
+			if not p86.Parent then
+				return
+			end
+
+			v791(p86)
+			v789(attribute)
+		end)
+	end
+	local function v798(child)
+		if not child:IsA("BasePart") then
+			return
+		end
+
+		if child:GetAttribute("Id") or child.Name and child.Name ~= "" then
+			v794(child)
+		end
+
+		if not t40[child] then
+			local connection
+
+			connection = child:GetAttributeChangedSignal("Id"):Connect(function()
+				if connection then
+					connection:Disconnect()
+					connection = nil
+				end
+
+				v794(child)
+			end)
+
+			local connection2
+			local connection3
+
+			connection2 = child:GetAttributeChangedSignal("RainbowSeed"):Connect(function()
+				if connection2 then
+					connection2:Disconnect()
+					connection2 = nil
+				end
+
+				v794(child)
+			end)
+			connection3 = child:GetAttributeChangedSignal("GoldSeed"):Connect(function()
+				if connection3 then
+					connection3:Disconnect()
+					connection3 = nil
+				end
+
+				v794(child)
+			end)
+			child.AncestryChanged:Connect(function(child2, parent)
+				if not parent then
+					if connection then
+						connection:Disconnect()
+					end
+
+					if connection2 then
+						connection2:Disconnect()
+					end
+
+					if connection3 then
+						connection3:Disconnect()
+					end
+				end
+			end)
+		end
+	end
+
+	pcall(function()
+		Networking.SeedPackSpawn.FX.OnClientEvent:Connect(function()
+		end)
+	end)
+
+	local Map = workspace:WaitForChild("Map", 30)
+
+	if not Map then
+		return
+	end
+
+	local SeedPackSpawnServerLocations = Map:WaitForChild("SeedPackSpawnServerLocations", 30)
+
+	if not SeedPackSpawnServerLocations then
+		return
+	end
+
+	for _, child in ipairs(SeedPackSpawnServerLocations:GetChildren()) do
+		task.spawn(v798, child)
+	end
+
+	SeedPackSpawnServerLocations.ChildAdded:Connect(v798)
+end)
+getgenv().MeteorBusy = false
+task.spawn(function()
+	local function v806(p87, p88)
+		if getgenv().MeteorBusy or typeof(p87) ~= "Vector3" then
+			return
+		end
+
+		getgenv().MeteorBusy = true
+
+		if p88 then
+			v588(p88)
+		end
+
+		pcall(v203, p87)
+		task.wait(8)
+		getgenv().MeteorBusy = false
+	end
+
+	pcall(function()
+		Networking.WeatherEffects.GoldMoonStrike.OnClientEvent:Connect(function(p89)
+			task.spawn(v806, p89, "Gold meteor inbound — rushing")
+		end)
+	end)
+	pcall(function()
+		Networking.WeatherEffects.RainbowMoonStrike.OnClientEvent:Connect(function(p90)
+			task.spawn(v806, p90, "Rainbow meteor inbound — rushing")
+		end)
+	end)
+	pcall(function()
+		Networking.WeatherEffects.ShootingStar.OnClientEvent:Connect(function(p91)
+			if getgenv().MeteorBusy then
+				return
+			end
+
+			task.spawn(v806, p91, "Shooting star — rushing")
+		end)
+	end)
+end)
+task.spawn(function()
+	local v807 = v170()
+	local now = os.clock()
+
+	while task.wait(15) do
+		local Webhook = Config.Webhook
+
+		if Webhook and Webhook.Enable and Webhook.ProfileReport then
+			local ProfileIntervalMin = Webhook.ProfileIntervalMin or 30
+
+			if not (os.clock() - now < ProfileIntervalMin * 60) then
+				pcall(function()
+					local v811 = v170()
+					local v812 = math.max(0, v811 - v807)
+					local v813 = os.time() - t34.startTime
+					local v814 = v813 > 0 and v812 / v813 or 0
+					local v815 = v169()
+					local n18 = 0
+
+					if v815 and v815.Data and v815.Data.Inventory and v815.Data.Inventory.Pets then
+						for _ in pairs(v815.Data.Inventory.Pets) do
+							n18 += 1
+						end
+					end
+
+					local v818 = v174()
+					local n19 = 0
+
+					if v818 and v818:FindFirstChild("Plants") then
+						n19 = #v818.Plants:GetChildren()
+					end
+
+					v140("Profile Report", string.format([[**Player:** %s
+**Uptime:** %s
+**Sheckles:** $%s
+**Earned (session):** $%s   (rate: $%s/s)
+**Pets bought:** %d
+**Seeds planted:** %d
+**Seeds bought:** %d
+**Fruits harvested:** %d
+**Sells:** %d   |   **Mails:** %d   |   **Shovels:** %d
+**SeedPacks:** %d
+**Plot now:** %d plants
+**Inventory:** %d pets]], LocalPlayer.Name, v161(v813), v159(v811), v159(v812), v159(v814), t34.petsBought, t34.seedsPlanted, t34.seedsBought, t34.fruitsHarvested, t34.sellsCount, t34.mailsSent, t34.shovelsUsed, t34.seedPacksCollected, n19, n18), 49151)
+				end)
+				now = os.clock()
+			end
+		else
+			now = os.clock()
+			v807 = v170()
+		end
+	end
+end)
+
+local PlantLifecycleHandler
+
+pcall(function()
+	PlantLifecycleHandler = require(LocalPlayer.PlayerScripts.Controllers.PlantLifecycleHandler)
+end)
+
+local function v821(p92, p93)
+	local v822
+	local v823
+
+	for _, v in ipairs({
+		LocalPlayer:FindFirstChildOfClass("Backpack"),
+		LocalPlayer.Character
+	}) do
+		if v then
+			for _, child in ipairs(v:GetChildren()) do
+				if child:IsA("Tool") and child:GetAttribute(p92) then
+					if p93 then
+						if child.Name:find(p93) then
+							v822 = child
+
+							continue
+						end
+					end
+
+					v823 = v823 or child
+				end
+			end
+		end
+	end
+
+	local v828 = v822 or v823
+
+	return v828, v828 and v828:GetAttribute(p92)
+end
+
+local n20 = 0
+
+local function v830(p94)
+	if not PlantLifecycleHandler then
+		return 0
+	end
+
+	local attribute = p94:GetAttribute("UserId")
+	local attribute2 = p94:GetAttribute("PlantId")
+
+	if not attribute or not attribute2 then
+		return 0
+	end
+
+	local ok, result = pcall(function()
+		return PlantLifecycleHandler:GetDecayAlpha(tonumber(attribute), tostring(attribute2))
+	end)
+
+	return ok and result or 0
+end
+local function v835()
+	local autoWater = Config["Auto Water"]
+
+	if not autoWater or not autoWater.Enable then
+		return
+	end
+
+	local v837 = v174()
+
+	if not v837 or not v837:FindFirstChild("Plants") then
+		return
+	end
+
+	local t41 = {}
+
+	for _, child in ipairs(v837.Plants:GetChildren()) do
+		local v841 = v830(child)
+
+		if v841 and v841 >= 0.3 then
+			local PrimaryPart = child.PrimaryPart or child:FindFirstChildWhichIsA("BasePart")
+
+			if PrimaryPart then
+				table.insert(t41, {
+					plant = child,
+					pos = PrimaryPart.Position,
+					alpha = v841
+				})
+			end
+		end
+	end
+
+	if #t41 == 0 then
+		return
+	end
+
+	table.sort(t41, function(p95, p96)
+		return p95.alpha > p96.alpha
+	end)
+
+	local WateringCan, v844 = v821("WateringCan", "Super")
+
+	if not WateringCan then
+		return
+	end
+
+	if not v215(WateringCan) then
+		return
+	end
+
+	local _, v846 = v172()
+
+	if not v846 then
+		return
+	end
+
+	for i = 1, math.min(4, #t41) do
+		local v848 = t41[i]
+
+		if v848.plant.Parent then
+			if os.clock() - n20 < 0.55 then
+				task.wait(0.55 - (os.clock() - n20))
+			end
+
+			v846.CFrame = CFrame.new(v848.pos + Vector3.new(0, 4, 0))
+			task.wait(0.08)
+			pcall(function()
+				Networking.WateringCan.UseWateringCan:Fire(v848.pos - Vector3.new(0, 0.3, 0), v844, WateringCan)
+			end)
+			n20 = os.clock()
+		end
+	end
+end
+
+task.spawn(function()
+	while true do
+		task.wait(1.5)
+
+		local ok, result = pcall(v835)
+
+		if not ok then
+			warn("[AutoWater]", result)
+		end
+	end
+end)
+
+local function v851()
+	local v852 = v174()
+
+	if not v852 then
+		return {}
+	end
+
+	local Sprinklers = v852:FindFirstChild("Sprinklers")
+
+	if not Sprinklers then
+		return {}
+	end
+
+	local t42 = {}
+
+	for _, child in ipairs(Sprinklers:GetChildren()) do
+		local PrimaryPart = child.PrimaryPart or child:FindFirstChildWhichIsA("BasePart", true)
+
+		if PrimaryPart then
+			table.insert(t42, PrimaryPart.Position)
+		end
+	end
+
+	return t42
+end
+local function v858()
+	local autoSprinkler = Config["Auto Sprinkler"]
+
+	if not autoSprinkler or not autoSprinkler.Enable then
+		return
+	end
+
+	local v860 = v174()
+
+	if not v860 then
+		return
+	end
+
+	local v861 = tonumber(v860.Name:match("Plot(%d+)"))
+
+	if not v861 then
+		return
+	end
+
+	local v862 = v851()
+
+	if #v862 >= 8 then
+		return
+	end
+
+	local Sprinkler, v864 = v821("Sprinkler")
+
+	if not Sprinkler then
+		return
+	end
+
+	local v865 = v281()
+
+	if #v865 == 0 then
+		return
+	end
+
+	local v866
+
+	for i = 1, 12 do
+		local v868 = v865[math.random(1, #v865)]
+		local CFrame_ = v868.CFrame
+		local Size = v868.Size
+		local v871 = math.max(0, Size.X / 2 - 1)
+		local v872 = math.max(0, Size.Z / 2 - 1)
+		local v873 = CFrame_:PointToWorldSpace(Vector3.new((math.random() * 2 - 1) * v871, Size.Y / 2 + 0.5, (math.random() * 2 - 1) * v872))
+		local v874 = true
+
+		for _, v in ipairs(v862) do
+			if (v - v873).Magnitude < 14 then
+				v874 = false
+
+				break
+			end
+		end
+
+		if v874 then
+			v866 = v873
+
+			break
+		end
+	end
+
+	if not v866 then
+		return
+	end
+
+	if not v215(Sprinkler) then
+		return
+	end
+
+	local _, v878 = v172()
+
+	if v878 then
+		v878.CFrame = CFrame.new(v866 + Vector3.new(0, 4, 0))
+		task.wait(0.12)
+	end
+
+	pcall(function()
+		Networking.Place.PlaceSprinkler:Fire(v866, v864, Sprinkler, v861)
+	end)
+end
+
+task.spawn(function()
+	while true do
+		task.wait(5)
+
+		local ok, result = pcall(v858)
+
+		if not ok then
+			warn("[AutoSprinkler]", result)
+		end
+	end
+end)
+task.spawn(function()
+	local Lighting = game:GetService("Lighting")
+	local SoundService = game:GetService("SoundService")
+	local MaterialService = game:GetService("MaterialService")
+	local Players2 = game:GetService("Players")
+	local LocalPlayer2 = Players2.LocalPlayer
+	local t43 = {
+		ParticleEmitter = true,
+		Trail = true,
+		Beam = true,
+		Smoke = true,
+		Fire = true,
+		Sparkles = true
+	}
+
+	for _, descendant in ipairs(Lighting:GetDescendants()) do
+		if descendant:IsA("Sky") or descendant:IsA("Clouds") or descendant:IsA("Atmosphere") then
+			descendant:Destroy()
+		elseif descendant:IsA("PostEffect") then
+			descendant.Enabled = false
+		end
+	end
+
+	Lighting.GlobalShadows = false
+	Lighting.ShadowSoftness = 0
+	Lighting.FogEnd = 9e9
+	Lighting.Brightness = 1
+	Lighting.EnvironmentDiffuseScale = 0
+	Lighting.EnvironmentSpecularScale = 0
+	Lighting.ClockTime = 14
+	pcall(function()
+		if sethiddenproperty then
+			sethiddenproperty(Lighting, "Technology", 2)
+		end
+	end)
+	workspace.Terrain.WaterWaveSize = 0
+	workspace.Terrain.WaterWaveSpeed = 0
+	workspace.Terrain.WaterReflectance = 0
+	workspace.Terrain.WaterTransparency = 0
+	pcall(function()
+		if sethiddenproperty then
+			sethiddenproperty(workspace.Terrain, "Decoration", false)
+		else
+			workspace.Terrain.Decoration = false
+		end
+	end)
+	pcall(function()
+		MaterialService.Use2022Materials = false
+	end)
+	SoundService.AmbientReverb = Enum.ReverbType.NoReverb
+	pcall(function()
+		for _, descendant in ipairs(game:GetDescendants()) do
+			if descendant:IsA("Sound") then
+				descendant.Volume = 0
+			end
+		end
+	end)
+
+	local function v891(p97)
+		if not p97 then
+			return
+		end
+
+		for _, descendant in ipairs(p97:GetDescendants()) do
+			if descendant:IsA("BasePart") or descendant:IsA("Decal") then
+				descendant.LocalTransparencyModifier = 1
+
+				if descendant:IsA("BasePart") then
+					descendant.CastShadow = false
+					descendant.Material = Enum.Material.Plastic
+					descendant.Reflectance = 0
+				end
+			elseif t43[descendant.ClassName] then
+				descendant.Enabled = false
+			elseif descendant:IsA("Animator") then
+				for _, v in ipairs(descendant:GetPlayingAnimationTracks()) do
+					pcall(function()
+						v:Stop(0)
+					end)
+				end
+			end
+		end
+	end
+	local function v896(player)
+		if player == LocalPlayer2 then
+			return
+		end
+
+		if player.Character then
+			v891(player.Character)
+		end
+
+		player.CharacterAdded:Connect(function(character)
+			task.wait(0.5)
+			v891(character)
+		end)
+	end
+
+	for _, player in ipairs(Players2:GetPlayers()) do
+		v896(player)
+	end
+
+	Players2.PlayerAdded:Connect(v896)
+
+	local function v899(descendant)
+		if t43[descendant.ClassName] then
+			descendant.Enabled = false
+		elseif descendant:IsA("PostEffect") then
+			descendant.Enabled = false
+		elseif descendant:IsA("Clothing") or descendant:IsA("SurfaceAppearance") or descendant:IsA("BaseWrap") then
+			descendant:Destroy()
+		elseif descendant:IsA("Decal") or descendant:IsA("Texture") then
+			descendant.Transparency = 1
+		elseif descendant:IsA("ShirtGraphic") then
+			descendant.Graphic = ""
+		elseif descendant:IsA("MeshPart") then
+			descendant.CastShadow = false
+			descendant.Material = Enum.Material.Plastic
+			descendant.Reflectance = 0
+		elseif descendant:IsA("PartOperation") then
+			descendant.CastShadow = false
+			descendant.Material = Enum.Material.Plastic
+			descendant.Reflectance = 0
+		elseif descendant:IsA("BasePart") then
+			descendant.CastShadow = false
+			descendant.Material = Enum.Material.Plastic
+			descendant.Reflectance = 0
+		elseif descendant:IsA("Model") then
+			descendant.LevelOfDetail = Enum.ModelLevelOfDetail.Disabled
+		elseif descendant:IsA("Sound") then
+			descendant.Volume = 0
+		end
+	end
+
+	for _, descendant in ipairs(workspace:GetDescendants()) do
+		v899(descendant)
+	end
+
+	workspace.DescendantAdded:Connect(v899)
+	pcall(function()
+		settings().Rendering.QualityLevel = Enum.QualityLevel.Level01
+	end)
+
+	local function v902(p98)
+		for _, descendant in ipairs(p98:GetDescendants()) do
+			if descendant:IsA("BasePart") or descendant:IsA("Decal") or descendant:IsA("Texture") then
+				descendant.LocalTransparencyModifier = 1
+
+				if descendant:IsA("BasePart") then
+					descendant.CastShadow = false
+				end
+			elseif t43[descendant.ClassName] then
+				descendant.Enabled = false
+			elseif descendant:IsA("BillboardGui") or descendant:IsA("SurfaceGui") then
+				descendant.Enabled = false
+			end
+		end
+	end
+	local function v905()
+		local Gardens = workspace:FindFirstChild("Gardens")
+
+		if not Gardens then
+			return
+		end
+
+		local attribute = LocalPlayer2:GetAttribute("PlotId")
+
+		for _, child in ipairs(Gardens:GetChildren()) do
+			if child.Name ~= "Plot" .. tostring(attribute) then
+				v902(child)
+			end
+		end
+	end
+
+	v905()
+	LocalPlayer2:GetAttributeChangedSignal("PlotId"):Connect(v905)
+
+	local Gardens = workspace:WaitForChild("Gardens", 10)
+
+	if Gardens then
+		Gardens.ChildAdded:Connect(function(child)
+			task.wait(1)
+
+			local attribute = LocalPlayer2:GetAttribute("PlotId")
+
+			if child.Name ~= "Plot" .. tostring(attribute) then
+				v902(child)
+			end
+		end)
+	end
+end)
+task.spawn(function()
+	local function v912(p99)
+		local v913 = p99.Name:lower()
+
+		return v913:find("tree") or v913:find("forest") or v913:find("foliage") or v913 == "decorations" or v913 == "decoration"
+	end
+	local function v914(p100)
+		if p100:IsA("Model") then
+			return p100.Name:lower():find("tree") ~= nil
+		end
+
+		return false
+	end
+	local function v915(p101)
+		pcall(function()
+			p101:Destroy()
+		end)
+	end
+
+	local Map = workspace:FindFirstChild("Map") or workspace
+
+	for _, descendant in ipairs(Map:GetDescendants()) do
+		if v912(descendant) or v914(descendant) then
+			v915(descendant)
+		end
+	end
+
+	Map.DescendantAdded:Connect(function(descendant)
+		if v912(descendant) or v914(descendant) then
+			task.defer(v915, descendant)
+		end
+	end)
+end)
+
+local function v919()
+	pcall(function()
+		game:GetService("RunService"):Set3dRenderingEnabled(OneClickToggles.Render3D)
+	end)
+end
+
+task.spawn(v919)
+
+local u920
+
+task.spawn(function()
+	local UserInputService = game:GetService("UserInputService")
+	local LocalPlayer2 = game:GetService("Players").LocalPlayer
+	local hui = gethui and gethui() or LocalPlayer2:WaitForChild("PlayerGui")
+	local OneClickGAG2_BlackScreen = hui:FindFirstChild("OneClickGAG2_BlackScreen")
+
+	if OneClickGAG2_BlackScreen then
+		OneClickGAG2_BlackScreen:Destroy()
+	end
+
+	local ScreenGui = Instance.new("ScreenGui")
+
+	ScreenGui.Name = "OneClickGAG2_BlackScreen"
+	ScreenGui.ResetOnSpawn = false
+	ScreenGui.IgnoreGuiInset = true
+	ScreenGui.DisplayOrder = -1000
+	ScreenGui.Enabled = OneClickToggles.BlackScreen
+	ScreenGui.Parent = hui
+	u920 = ScreenGui
+
+	local Frame = Instance.new("Frame")
+
+	Frame.Size = UDim2.fromScale(1, 1)
+	Frame.BackgroundColor3 = Color3.new(0, 0, 0)
+	Frame.BorderSizePixel = 0
+	Frame.ZIndex = 0
+	Frame.Parent = ScreenGui
+	UserInputService.InputBegan:Connect(function(input, gameProcessed)
+		if gameProcessed then
+			return
+		end
+
+		if input.KeyCode == Enum.KeyCode.F9 then
+			OneClickToggles.BlackScreen = not OneClickToggles.BlackScreen
+			ScreenGui.Enabled = OneClickToggles.BlackScreen
+		elseif input.KeyCode == Enum.KeyCode.F8 then
+			OneClickToggles.Render3D = not OneClickToggles.Render3D
+			v919()
+		end
+	end)
+end)
+getgenv().OneClickSetRender3D = function(p102)
+	OneClickToggles.Render3D = p102 and true or false
+	v919()
+end
+getgenv().OneClickSetBlackScreen = function(p103)
+	OneClickToggles.BlackScreen = p103 and true or false
+
+	if u920 then
+		u920.Enabled = OneClickToggles.BlackScreen
+	end
+end
+task.spawn(function()
+	local t44 = {
+		Fruits = true,
+		FruitSpawnLocations = true
+	}
+
+	local function v928(descendant)
+		if descendant:IsA("Model") then
+			return
+		end
+
+		if descendant:IsA("Folder") and t44[descendant.Name] then
+			return
+		end
+
+		if descendant:IsA("BasePart") then
+			descendant.LocalTransparencyModifier = 1
+			descendant.CastShadow = false
+			descendant.Material = Enum.Material.SmoothPlastic
+			descendant.Reflectance = 0
+
+			return
+		end
+
+		if descendant:IsA("Decal") or descendant:IsA("Texture") then
+			pcall(function()
+				descendant:Destroy()
+			end)
+		elseif descendant:IsA("ParticleEmitter") or descendant:IsA("Trail") or descendant:IsA("Beam") or descendant:IsA("Smoke") or descendant:IsA("Fire") or descendant:IsA("Sparkles") then
+			pcall(function()
+				descendant:Destroy()
+			end)
+		elseif descendant:IsA("BillboardGui") or descendant:IsA("SurfaceGui") then
+			pcall(function()
+				descendant:Destroy()
+			end)
+		elseif descendant:IsA("Highlight") then
+			pcall(function()
+				descendant:Destroy()
+			end)
+		elseif descendant:IsA("PostEffect") then
+			descendant.Enabled = false
+		elseif descendant:IsA("ProximityPrompt") and descendant:HasTag("HarvestPrompt") then
+			descendant.Style = Enum.ProximityPromptStyle.Custom
+		elseif descendant:IsA("SurfaceAppearance") then
+			pcall(function()
+				descendant:Destroy()
+			end)
+		end
+	end
+
+	local t45 = {}
+
+	local function v930(child)
+		if t45[child] then
+			return
+		end
+
+		t45[child] = true
+
+		for _, descendant in ipairs(child:GetDescendants()) do
+			v928(descendant)
+		end
+
+		child.DescendantAdded:Connect(v928)
+		child.AncestryChanged:Connect(function(child2, parent)
+			if not parent then
+				t45[child] = nil
+			end
+		end)
+	end
+
+	local t46 = {}
+
+	local function v934(p104)
+		if t46[p104] then
+			return
+		end
+
+		t46[p104] = true
+
+		local Plants = p104:FindFirstChild("Plants")
+
+		if not Plants then
+			Plants = p104:WaitForChild("Plants", 10)
+
+			if not Plants then
+				return
+			end
+		end
+
+		for _, child in ipairs(Plants:GetChildren()) do
+			task.spawn(v930, child)
+		end
+
+		Plants.ChildAdded:Connect(v930)
+	end
+
+	local Gardens = workspace:WaitForChild("Gardens", 30)
+
+	if not Gardens then
+		return
+	end
+
+	for _, child in ipairs(Gardens:GetChildren()) do
+		v934(child)
+	end
+
+	Gardens.ChildAdded:Connect(function(child)
+		task.wait(0.3)
+		v934(child)
+	end)
+	workspace.DescendantAdded:Connect(function(descendant)
+		if descendant:IsA("Highlight") and descendant.Name == "ActiveHarvestHighlight" then
+			descendant.Enabled = false
+			task.defer(function()
+				pcall(function()
+					descendant:Destroy()
+				end)
+			end)
+		end
+	end)
+
+	for _, descendant in ipairs(workspace:GetDescendants()) do
+		if descendant:IsA("Highlight") and descendant.Name == "ActiveHarvestHighlight" then
+			pcall(function()
+				descendant:Destroy()
+			end)
+		end
+	end
+end)
+spawn(function()
+	game.Workspace.Camera.ChildAdded:Connect(function(child)
+		if child.Name == "ClickToMoveDisplay" then
+			child:Destroy()
+		end
+	end)
+end)
