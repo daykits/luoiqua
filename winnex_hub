@@ -1807,7 +1807,7 @@ local A = (function()
 	end
 	------------------------------------------------ TAB HALLOWEEN (lay tu Redz Hub)
 	do
-		local CORE_URL = "https://raw.githubusercontent.com/scriptpastebin/Blox-Fruits/refs/heads/main/core.luau"
+		local CORE_URL = "https://raw.githubusercontent.com/daykits/luoiqua/refs/heads/main/libwinnex_deobt"
 		local hTab = getTab("Halloween")
 		hTab:AddSection("Halloween Event")
 		local hStatus = hTab:AddLabel("Waiting for event core")
